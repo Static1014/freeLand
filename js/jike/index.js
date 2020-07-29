@@ -41,7 +41,7 @@ $(function () {
             let li = $("<li></li>");
             let a = $("<a>" + title + "</a>" + (isHtml ? "<sup style='color: red'>演示实例</sup>" : "<sup style='color: skyblue'>video</sup>"));
             a.attr("href", isHtml ? encodeURI("p" + (i + 1) + ".html?title=" + title + "&video=" + videoUrl) : videoUrl);
-            a.attr("target", "_blank");
+            // a.attr("target", "_blank");
             li.append(a);
 
 
