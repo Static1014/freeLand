@@ -60,6 +60,7 @@ function addHeader() {
     delLink.attr("target", "_blank");
     delLink.css("color", "orangered");
     subDiv.append(delLink);
+    subDiv.append("。");
 
     header.append(subDiv);
     header.append("<hr/>");

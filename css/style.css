@@ -1,6 +1,25 @@
 body {
-    background: #2B2B2B;
-    color: #ffffff;
+    background: #FFFFFF;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: cornflowerblue;
+}
+
+a:active {
+    color: black;
 }
 
 #content_box {

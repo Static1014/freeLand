@@ -26,20 +26,19 @@ $(function () {
      * 创建目录
      */
     function createMenu() {
-        var menu = $("<ul></ul>");
+        let menu = $("<ul></ul>");
 
         for (let i = 0; i < menuList.length; i++) {
+
+            let videoUrl = BASE_VIDEO_URL + (i + 1);
+            let isHtml = isExistFile("p" + (i + 1) + ".html");
             let title = "P" + (i + 1) + " " + menuList[i];
 
             let li = $("<li></li>");
-            if (isExistFile("p" + (i + 1) + ".html")) {
-                let a = $("<a>" + title + "</a>");
-                a.attr("href", encodeURI("p" + (i + 1) + ".html?title=" + title + "&video=" + BASE_VIDEO_URL + (i + 1)));
-                a.attr("target", "_blank");
-                li.append(a);
-            } else {
-                li.append(title);
-            }
+            let a = $("<a>" + title + "</a>" + (isHtml ? "<sup style='color: red'>演示实例</sup>" : "<sup style='color: skyblue'>video</sup>"));
+            a.attr("href", isHtml ? encodeURI("p" + (i + 1) + ".html?title=" + title + "&video=" + videoUrl) : videoUrl);
+            a.attr("target", "_blank");
+            li.append(a);
 
 
             menu.append(li);
