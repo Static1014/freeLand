@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../js/jQuery/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../../js/utils/commonUtils.js"></script>
+    <script type="text/javascript" src="../../js/jike/jikeUtils.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+</head>
+<body>
+<div style="margin: 20px;padding: 10px; min-height: 200px; width: 100%;">
+    <h2>知识点：</h2>
+    <ol>
+        <li>
+            HTML块元素
+            <ul style="list-style-type: none">
+                <li>块元素在显示时，通常会以新行开始</li>
+                <li>如：&lt;h1&gt;、&lt;p&gt;、&lt;ul&gt;</li>
+            </ul>
+        </li>
+        <li>
+            HTML内联元素
+            <ul style="list-style-type: none">
+                <li>内联元素通常不会以新行开始</li>
+                <li>如：&lt;b&gt;、&lt;a&gt;、&lt;img&gt;</li>
+            </ul>
+        </li>
+        <li>
+            &lt;div&gt;元素
+            <ul style="list-style-type: none">
+                <li>&lt;div&gt;元素也是块元素，其主要是作为组合HTML元素的容器</li>
+            </ul>
+        </li>
+        <li>
+            &lt;span&gt;元素
+            <ul style="list-style-type: none">
+                <li>&lt;div&gt;元素是内联元素，可作为文本的容器</li>
+            </ul>
+        </li>
+    </ol>
+    <h2>演示示例：</h2>
+    块元素：
+    <div style="background-color: orangered">
+        <p>大家好！</p>
+    </div>
+    内联元素：
+    <div style="background-color: skyblue">
+        <b>我是Static4u</b>
+        <img src="../../res/imgs/ic_html.png" alt="HTML5 Logo"/>
+        <p>你好，<span style="color: red;">这是测试span的</span></p>
+    </div>
+</div>
+<script src="../../js/jike/p15.js"></script>
+</body>
+</html>

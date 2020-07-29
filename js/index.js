@@ -9,6 +9,7 @@ $(function () {
     // $("#img_box").css("height", 360);
     // $("#img_box").css("background-size", "100% 100%");
     // $("#img_box").css("background-repeat", "no-repeat");
+
     // $("#img_box").css("background-attachment", "fixed");
 
     // console.info($("#content_box").css("height") + "  -  " + $("#content_box").css("background-color"));

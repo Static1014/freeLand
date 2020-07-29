@@ -15,7 +15,7 @@ function addHeader() {
         "margin-right": "10px",
         "width": "32px",
         "title": "返回上一页",
-        "src": "../../res/images/back.png"
+        "src": "../../res/imgs/back.png"
     });
     backImg.click(function () {
         goBack();
@@ -64,7 +64,6 @@ function addHeader() {
 
     header.append(subDiv);
     header.append("<hr/>");
-    header.append("<h2>学习内容：</h2>");
 
     $(document.body).prepend(header);
 
