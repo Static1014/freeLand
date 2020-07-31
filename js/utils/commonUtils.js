@@ -3,7 +3,7 @@
  * @param name 参数名
  * @returns {string|null}
  */
-function getUrlParam(name) {
+function getGetParam(name) {
     // 构造一个含有目标参数的正则表达式对象
     let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     // 匹配目标参数

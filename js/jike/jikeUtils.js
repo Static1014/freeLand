@@ -2,8 +2,8 @@
  * 添加课程title
  */
 function addHeader() {
-    let title = getUrlParam('title');
-    let videoUrl = getUrlParam('video');
+    let title = getGetParam('title');
+    let videoUrl = getGetParam('video');
 
     let header = $("<div></div>");
     header.id = 'header';

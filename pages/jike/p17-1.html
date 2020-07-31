@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单接收</title>
+    <script src="../../libs/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../../js/utils/commonUtils.js"></script>
+</head>
+<body>
+<div class="content" id="content">
+    表单接收结果：
+</div>
+<script type="text/javascript">
+    $(function () {
+        // name=efaef&pwd=&fruits=apple&fruits=orange&fruits=banana&sex=femal&websites=Google+Play、Google+Map&info=请输入个人信息fawfawfwfawf
+        let name = getGetParam("name");
+        let pwd = getGetParam("pwd");
+        // let pwd = getGetParam("pwd");
+
+        let content = $("#content");
+        content.append("<br/>");
+        content.append("用户名：" + name);
+        content.append("<br/>");
+        content.append("密码：" + pwd);
+    });
+</script>
+</body>
+</html>

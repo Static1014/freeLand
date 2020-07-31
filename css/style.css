@@ -45,3 +45,10 @@ table td {
 .center {
     text-align: center;
 }
+
+.content {
+    margin: 20px;
+    padding: 10px;
+    min-height: 200px;
+    width: 100%;
+}

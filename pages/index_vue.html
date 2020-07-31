@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../libs/vue.min.js"></script>
+</head>
+<body>
+<select v-model="bb" id="title">
+    <option v-for="item of ">aaa</option>
+</select>
+<div id="zzs" v-show="show.zzs" style="width: 50%;height: auto;background: orange;">
+    <p>zzs : {{show.zzs}}</p>
+    <p>{{love.a}}</p>
+    <p>{{love.b}}</p>
+    <p>{{aa}}</p>
+    <p>{{bb}}</p>
+    <p>{{cc}}</p>
+    <template v-for="(item, index) of arr">
+        <b>{{index}}<sup>{{item.key+" - "+item.value}}</sup></b><br/>
+    </template>
+</div>
+<div id="gs" v-show="show.gs" style="width: 50%;height:100px;background: skyblue;">
+    <p>我是个税</p>
+</div>
+<script src="../js/index_vue.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>布局演示页面</title>
-    <script src="../../js/jQuery/jquery-3.5.1.min.js"></script>
+    <script src="../../libs/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="../../js/utils/commonUtils.js"></script>
     <style type="text/css">
         body {
@@ -36,6 +36,7 @@
             background-color: white;
             text-align: center;
         }
+
         #content_ad {
             width: 20%;
             height: 80%;
@@ -65,5 +66,17 @@
         <td colspan="3" id="footer">footer</td>
     </tr>
 </table>
+<script>
+    $(function () {
+        $("#header").click(function () {
+            console.info($("#table").scrollTop() + $("#footer").offset().top - $("#table").offset().top);
+
+            $("#table").animate({
+                scrollTop: $("#table").scrollTop() + $("#footer").offset().top - $("#table").offset().top
+            }, 500);
+            $("#table").scrollTop($("#table").scrollTop() + $("#footer").offset().top - $("#table").offset().top);
+        });
+    });
+</script>
 </body>
 </html>
