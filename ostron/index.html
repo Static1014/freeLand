@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欧思创</title>
+    <meta name="keywords" content="抖音推广|直播带货|短视频拍摄">
+    <meta name="description" content="欧思创，助力抖音推广、直播带货、短视频拍摄">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="libs/vue.min.js"></script>
+    <script type="text/javascript" src="js/commonUtils.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+
+    <!--重置css-->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.easy_slides.css"/>
+    <script src="libs/jquery.easy_slides.js"></script>
+    <style>
+        .slider_four_in_line {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/horse.css"/>
+</head>
+<body>
+<div id="root">
+    <div id="header" class="header">
+        <div class="header_content">
+            <a href="index.html">
+                <img class="header_logo" src="img/logo-text.png" alt="logo">
+            </a>
+            <div class="header_menu">
+                <a v-for="(menu, index) in menuData"
+                   :class="['header_menu_item', curData.curIndex == index? 'active' :'']"
+                   @click="clickMenu(index)">
+                    {{menu.name}}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="container" class="container">
+        <div v-for="(menu, index) in contentData" :id="menu.id" class="group">
+            <h2 class="group_title">{{menu.name}}</h2>
+            <span v-if="menu.sub.length > 0" class="group_sub">{{menu.sub}}</span>
+            <!--商品池-->
+            <div v-if="menu.id === 'goods'" class="goods_content">
+                <div class="slider slider_four_in_line">
+                    <div class="goods_item" v-for="(item, goodsIndex) in menu.items">
+                        <img :src="menu.imgPath + item.img" :alt="item.name"/>
+                        <br/>
+                        <span class="name">{{item.name}}</span>
+                        <span v-if="item.price.length > 0" class="sub">{{item.price}}</span>
+                    </div>
+                    <div class="next_button"></div>
+                    <div class="prev_button"></div>
+                </div>
+            </div>
+            <!--达人池-->
+            <div v-if="menu.id === 'famous'" class="famous_item">
+                <div id="drag-container">
+                    <div id="spin-container">
+                        <a target="_blank" v-for="(item, famousIndex) in menu.items" :href="item.link">
+                            <img :src="menu.imgPath + item.img" :alt="item.name"/>
+                        </a>
+                        <!--                        <video controls autoplay="autoplay" loop>-->
+                        <!--                            <source src="" type="video/mp4">-->
+                        <!--                        </video>-->
+
+                        <p>达人池</p>
+                    </div>
+                    <div id="ground"></div>
+                </div>
+            </div>
+            <!--案例-->
+            <ul v-if="menu.id === 'case'" class="case_content">
+                <li class="case_item" v-for="(item, caseIndex) in menu.items"
+                    :style="'direction: '+(caseIndex%2===0?'ltr;':'rtl;')">
+                    <section class="case_describe" v-if="">
+                        <h4 class="name">{{item.name}}</h4>
+                        <br/>
+                        <p class="sub">{{item.sub}}</p>
+                        <br/>
+                        <p class="text">{{item.text}}</p>
+                        <br/>
+                    </section>
+                    <div style="width: 5em"></div>
+                    <img class="case_img" :src="menu.imgPath + item.img" alt="item.name"/>
+                </li>
+            </ul>
+            <!--合作入驻-->
+            <div v-if="menu.id === 'join'" class="join_content">
+                <div v-for="(group, groupIndex) in menu.items" class="join_steps">
+                    <div v-for="(item, joinIndex) in group" class="join_item">
+                        <div class="join_header">
+                            <span class="step">{{item.step}}</span>
+                            <span class="name">{{item.name}}</span>
+                        </div>
+                        <br/>
+                        <span class="sub">{{item.sub}}</span>
+                    </div>
+                </div>
+            </div>
+            <!--更多-->
+            <div v-if="menu.id === 'more'" class="more_content">
+                <div v-for="(item, moreIndex) in menu.items" class="more_item" @click="clickMoreItem(index, moreIndex)">
+                    <img :src="menu.imgPath + item.img" :alt="item.name"/>
+                    <br/>
+                    <span class="name">{{item.name}}</span>
+                    <span v-if="item.sub.length > 0" class="sub">{{item.sub}}</span>
+                </div>
+            </div>
+            <div v-if="menu.more.length > 0" class="group_bottom_more" :style="menu.moreStyle"  @click="clickGroupBottomMore(index, menu.more)">
+                <p>{{menu.more}}</p>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="footer">
+        <span v-for="item in items" class="footer_item">{{item}}</span>
+    </div>
+    <div id="goTop" class="go_top" v-show="curData.curIndex >= 1" @click="clickTop">
+        <img class="img" src="img/ic_go_top.png" alt="回到顶部">
+    </div>
+</div>
+<script src="js/index.js"></script>
+<script src="js/horse.js"></script>
+</body>
+</html>

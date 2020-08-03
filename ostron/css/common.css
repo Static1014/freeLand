@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: "Microsoft YaHei", "微软雅黑";
+}
+
+body {
+    min-width: 1200px;
+}
+
+/*统一a标签样式*/
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: cornflowerblue;
+}
+
+a:active {
+    color: black;
+}
+
+/*统一table默认框线*/
+table {
+    border-collapse: collapse; /*坍塌，边框重叠*/
+    border: solid 1px black; /*实线、1px、黑色*/
+}
+
+table th {
+    border: solid 1px black; /*实线、1px、黑色*/
+}
+
+table td {
+    border: solid 1px black; /*实线、1px、黑色*/
+}
