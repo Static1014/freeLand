@@ -5,7 +5,7 @@
 function addHeader() {
   let css = document.createElement("link");
   css.setAttribute("rel", "stylesheet");
-  css.setAttribute("href", "../../css/jike.css");
+  css.setAttribute("href", "css/jike.css");
   document.head.appendChild(css);
 
   let title = getGetParam('title');
@@ -21,7 +21,7 @@ function addHeader() {
   backImg.attr({
     "id": "top",
     "title": "返回上一页",
-    "src": "../../res/imgs/back.png"
+    "src": "img/back.png"
   });
   backImg.addClass("back-img");
   backImg.click(function () {
@@ -56,7 +56,7 @@ function addHeader() {
   subDiv.append("，侵权请");
 
   let delLink = $("<a>联系删除</a>");
-  delLink.attr("href", "../../contact.html");
+  delLink.attr("href", "contact.html");
   delLink.attr("target", "_blank");
   delLink.css("color", "orangered");
   subDiv.append(delLink);
