@@ -1,71 +1,71 @@
+
 /**
  * 添加课程title
  */
 function addHeader() {
-    let title = getGetParam('title');
-    let videoUrl = getGetParam('video');
+  let css = document.createElement("link");
+  css.setAttribute("rel", "stylesheet");
+  css.setAttribute("href", "../../css/jike.css");
+  document.head.appendChild(css);
 
-    let header = $("<div></div>");
-    header.id = 'header';
-    header.css('width', '100%');
+  let title = getGetParam('title');
+  let videoUrl = getGetParam('video');
 
-    let backImg = $("<img>");
-    backImg.attr({
-        "id": "top",
-        "margin-right": "10px",
-        "width": "32px",
-        "title": "返回上一页",
-        "src": "../../res/imgs/back.png"
-    });
-    backImg.click(function () {
-        goBack();
-    });
+  let header = $("<div></div>");
+  header.id = 'header';
+  header.css({
+    "width": "100%"
+  });
 
-    let h1 = $("<h1></h1>");
-    h1.append(title);
-    h1.css({
-        "text-align": "center",
-        "margin-left": "auto",
-        "margin-right": "auto",
-        "width": (getBodySize().width - 84) + "px"
-    });
+  let backImg = $("<img>");
+  backImg.attr({
+    "id": "top",
+    "title": "返回上一页",
+    "src": "../../res/imgs/back.png"
+  });
+  backImg.addClass("back-img");
+  backImg.click(function () {
+    goBack();
+  });
 
-    let tDiv = $("<div></div>");
-    tDiv.append(backImg);
-    tDiv.append(h1);
-    header.append(tDiv);
+  let h1 = $("<h1></h1>");
+  h1.append(title);
 
-    let subDiv = $("<div></div>");
-    subDiv.css({
-        "float": "right",
-        "text-align": "center",
-        "margin": "0 10px 10px 0",
-        "width": "100%"
-    });
+  let tDiv = $("<div></div>");
+  tDiv.append(backImg);
+  tDiv.append(h1);
+  tDiv.addClass("header-top");
+  header.append(tDiv);
 
-    subDiv.append("学习时间：");
-    subDiv.append("2020.07.28&nbsp;&nbsp;&nbsp;&nbsp;");
+  let subDiv = $("<div></div>");
+  subDiv.css({
+    "text-align": "center",
+    "width": "100%"
+  });
 
-    subDiv.append("学习来源：");
-    let videoLink = $("<a>B站视频链接</a>");
-    videoLink.attr("href", videoUrl);
-    videoLink.attr("target", "_blank");
-    videoLink.css("color", "darkturquoise");
-    subDiv.append(videoLink);
+  subDiv.append("学习时间：");
+  subDiv.append("2020.07.28&nbsp;&nbsp;&nbsp;&nbsp;");
 
-    subDiv.append("，侵权请");
+  subDiv.append("学习来源：");
+  let videoLink = $("<a>B站视频链接</a>");
+  videoLink.attr("href", videoUrl);
+  videoLink.attr("target", "_blank");
+  videoLink.css("color", "darkturquoise");
+  subDiv.append(videoLink);
 
-    let delLink = $("<a>联系删除</a>");
-    delLink.attr("href", "../../contact.html");
-    delLink.attr("target", "_blank");
-    delLink.css("color", "orangered");
-    subDiv.append(delLink);
-    subDiv.append("。");
+  subDiv.append("，侵权请");
 
-    header.append(subDiv);
-    header.append("<hr/>");
+  let delLink = $("<a>联系删除</a>");
+  delLink.attr("href", "../../contact.html");
+  delLink.attr("target", "_blank");
+  delLink.css("color", "orangered");
+  subDiv.append(delLink);
+  subDiv.append("。");
 
-    $(document.body).prepend(header);
+  header.append(subDiv);
+  header.append("<hr/>");
 
-    document.title = title;
+  $(document.body).prepend(header);
+
+  document.title = title;
 }
