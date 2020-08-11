@@ -36,18 +36,3 @@ table th {
 table td {
     border: solid 1px black; /*实线、1px、黑色*/
 }
-
-/* *************************  CSS自定义class  ****************************** */
-.blue {
-    color: cornflowerblue;
-}
-
-.center {
-    text-align: center;
-}
-
-.content {
-    margin: 20px;
-    min-height: 200px;
-    width: 100%;
-}
