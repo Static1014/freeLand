@@ -144,7 +144,7 @@ $(function () {
       menu.append(li);
     }
 
-    $("body").append(menu);
+    $(".container").append(menu);
   }
 
   function setMenuLink(a, url, videoUrl, title) {
@@ -165,7 +165,7 @@ $(function () {
   }
 
   function addFooter() {
-    $("body").append($("<footer><p>这里是Footer，视频内容有点多，就不在此更新示例了。可通过零碎时间观看视频，在实际项目中运用。</p></footer>"));
+    $(".container").append($("<footer><p>这里是Footer，视频内容有点多，就不在此更新示例了。可通过零碎时间观看视频，在实际项目中运用。</p></footer>"));
   }
 
   createMenu();

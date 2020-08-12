@@ -28,5 +28,80 @@ $(function () {
   // console.info("window.devicePixelRatio :" + window.devicePixelRatio);
 
   document.title = INDEX_TITLE;
-  $("#title").html(INDEX_TITLE);
+  // $(".h-title").text(INDEX_TITLE);
+
+  let data = {
+    title: INDEX_TITLE,
+    fontColor: "#5C5753",
+    groups: [
+      {
+        color: "#e68e17",
+        subColor: "#eca444",
+        title: "Web前端基础练习",
+        subTitle: "零基础课程训练",
+        classes: [
+          {
+            name: "《极客学院》Web前段开发教学 - 第一部分：H5+CSS+JS",
+            link: "pj/jike/index.html",
+          }, {
+            name: "轮播图 - 手动无循环",
+            link: "pj/banner/banner.html",
+          }
+        ]
+      },
+      {
+        color: "#639F5A",
+        subColor: "#7BB073",
+        title: "Demo尝试",
+        subTitle: "是骡子是马拉出来溜溜",
+        classes: [
+          {
+            name: "改版抖音开放平台",
+            link: "pj/ostron/index.html",
+          }
+        ]
+      },
+      {
+        color: "#EC3933",
+        subColor: "#EE554A",
+        title: "设计工具",
+        subTitle: "如果不知道从哪开始，可以先到这里看看",
+        classes: [
+          {
+            name: "Color Hunt - Color Palettes for Designers and Artists",
+            sub: "配色",
+            link: "https://colorhunt.co/",
+          }, {
+            name: "Colormind - Bootstrap UI colors",
+            sub: "色彩设计",
+            link: "http://colormind.io/bootstrap/",
+          },
+          {
+            name: "Fresh Background Gradients | WebGradients.com 💎",
+            sub: "渐变色",
+            link: "https://webgradients.com/",
+          },
+          {
+            name: "色值转换与对照",
+            sub: "颜色转换",
+            link: "https://www.sioe.cn/yingyong/yanse-rgb-16/",
+          }
+        ]
+      },
+      {
+        color: "#B08D88",
+        subColor: "#C2A7A3",
+        title: "其他",
+        subTitle: "还没想好叫什么",
+        classes: []
+      }
+    ]
+  };
+
+  let home = new Vue({
+    el: "#home",
+    data: {
+      data: data
+    }
+  });
 });
