@@ -157,9 +157,16 @@ body {
   background: #efefef;
 }
 
+.g-content .g-content-item {
+  margin-top: 20px;
+}
+
+.g-content .g-content-item:first-child {
+  margin-top: 0;
+}
+
 .g-content a {
-  display: block;
-  padding: 10px 0;
+  line-height: 20px;
   font-size: 16px;
 }
 
@@ -181,4 +188,10 @@ body {
 
 .content-span {
   font-size: 14px;
+}
+
+.g-content .g-sup-action {
+  font-size: 14px;
+  color: skyblue;
+  cursor: pointer;
 }

@@ -1,0 +1,79 @@
+body {
+  background: #161823;
+}
+
+.header {
+  width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.header img {
+  width: 60px;
+}
+
+.header > a {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.header h3 {
+  color: #fff;
+  margin-left: 20px;
+  font-size: 24px;
+  display: block;
+  float: left;
+}
+
+.header .sub {
+  height: 24px;
+  display: block;
+  float: left;
+}
+
+.sub span {
+  width: 1px;
+  height: 18px;
+  background: #fff;
+  margin: 6px 6px 0 6px;
+  display: block;
+  float: left;
+}
+
+.sub p {
+  display: block;
+  float: left;
+  font-size: 18px;
+  margin: 5px 0 0 0;
+  color: #fff;
+}
+
+.content {
+  width: 100%;
+  color: #A2A2A7;
+}
+
+.content .contact {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.contact > span {
+  font-weight: 400;
+  font-size: 40px;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.contact p {
+  line-height: 30px;
+}
+
+.contact p:first-child {
+  margin-top: 40px;
+}
+
+.contact a {
+  color: #A2A2A7;
+}

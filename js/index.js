@@ -18,17 +18,16 @@ $(function () {
   //     $(this).val("点我干嘛");
   // });
   //
-  // console.info("document.body.clientWidth :" + document.body.clientWidth + " - " + document.body.clientHeight);
-  // console.info("document.body.offsetWidth :" + document.body.offsetWidth + " - " + document.body.offsetHeight);
-  // console.info("document.body.scrollWidth :" + document.body.scrollWidth + " - " + document.body.scrollHeight);
-  // console.info("document.body.scrollLeft :" + document.body.scrollLeft + " - " + document.body.scrollTop);
-  // console.info("window.screenLeft :" + window.screenLeft + " - " + window.screenTop);
-  // console.info("window.screen.width :" + window.screen.width + " - " + window.screen.height);
-  // console.info("window.screen.availWidth :" + window.screen.availWidth + " - " + window.screen.availHeight);
-  // console.info("window.devicePixelRatio :" + window.devicePixelRatio);
+  console.info("document.body.clientWidth :" + document.body.clientWidth + " - " + document.body.clientHeight);
+  console.info("document.body.offsetWidth :" + document.body.offsetWidth + " - " + document.body.offsetHeight);
+  console.info("document.body.scrollWidth :" + document.body.scrollWidth + " - " + document.body.scrollHeight);
+  console.info("document.body.scrollLeft :" + document.body.scrollLeft + " - " + document.body.scrollTop);
+  console.info("window.screenLeft :" + window.screenLeft + " - " + window.screenTop);
+  console.info("window.screen.width :" + window.screen.width + " - " + window.screen.height);
+  console.info("window.screen.availWidth :" + window.screen.availWidth + " - " + window.screen.availHeight);
+  console.info("window.devicePixelRatio :" + window.devicePixelRatio);
 
   document.title = INDEX_TITLE;
-  // $(".h-title").text(INDEX_TITLE);
 
   let data = {
     title: INDEX_TITLE,
@@ -92,16 +91,64 @@ $(function () {
         color: "#B08D88",
         subColor: "#C2A7A3",
         title: "其他",
-        subTitle: "还没想好叫什么",
+        subTitle: "还没想好呢",
         classes: []
       }
     ]
   };
 
-  let home = new Vue({
+  new Vue({
     el: "#home",
     data: {
       data: data
+    },
+    methods: {
+      clickAction: function (mClass) {
+        if (mClass.action === "copy") {
+          copyToClipboard(mClass.name + " : " + mClass.sub);
+        } else {
+          showToast("指令错误");
+        }
+      }
     }
+  });
+
+  /**
+   * 异步获取设备信息
+   * @returns {Promise<*>}
+   */
+  async function getDeviceInfo() {
+    return new Promise((resolve => {
+      resolve(getDeviceSize());
+    }));
+  }
+
+  /**
+   * 添加设备信息group
+   */
+  getDeviceInfo().then((result) => {
+    logi(result);
+    // 插入到倒数第二个位置，第一个参数为插入位置，第二个为要删除的元素位置，第三个为值
+    data.groups.splice(data.groups.length - 1, 0, {
+      color: "#2b5876",
+      subColor: "#4e4376",
+      title: "设备信息",
+      subTitle: "总有一些你想要又得不到的小东西",
+      classes: [
+        {
+          name: "屏幕尺寸",
+          sub: "width: " + result.screenWidth + "px, height: " + result.screenHeight + "px",
+          title: "当前设备屏幕尺寸(单位像素)",
+          action: "copy",
+          actionName: "复制"
+        }, {
+          name: "屏幕可用区域尺寸",
+          sub: "width: " + result.screenAvailWidth + "px, height: " + result.screenAvailHeight + "px",
+          title: "当前设备屏幕可用区域尺寸(如Mac中去除Docker和MenuBar，单位像素)",
+          action: "copy",
+          actionName: "复制"
+        },
+      ]
+    });
   });
 });

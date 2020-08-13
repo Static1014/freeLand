@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <!-- 依托设备宽度，允许 0.5 - 2倍缩放 -->
   <meta
     name="viewport"
@@ -9,6 +10,7 @@
   />
   <script type="text/javascript" src="libs/jquery-3.5.1.min.js"></script>
   <script type="text/javascript" src="libs/vue.min.js"></script>
+  <script type="text/javascript" src="js/utils/commonUtils.js"></script>
 
   <link rel="stylesheet" type="text/css" href="css/reset.css"/>
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -40,13 +42,20 @@
           <span class="g-title sub">{{item.subTitle}}</span>
         </div>
         <div class="g-content">
-          <a v-for="mClass in item.classes" v-if="mClass.name.length > 0" :href="mClass.link"
-             :onmouseover="'this.style.color=\''+item.color+'\''"
-             :onmouseout="'this.style.color=\''+data.fontColor+'\''">
-            {{mClass.name}}
+          <div v-for="(mClass, index) in item.classes" v-if="mClass.name.length > 0" class="g-content-item">
+            <a :id="'a-item-'+index"
+               :href="mClass.link && mClass.link.length > 0 ? mClass.link : '#a-item-'+index"
+               :onmouseover="'this.style.color=\''+item.color+'\''"
+               :onmouseout="'this.style.color=\''+data.fontColor+'\''"
+               :title="mClass.title"
+            >
+              {{mClass.name}}
+            </a>
             <span class="content-span" v-if="mClass.sub && mClass.sub.length > 0" :style="'color: '+item.subColor"> - {{mClass.sub}}</span>
-          </a>
-          <div class="g-empty" v-if="item.classes.length < 1">
+            <i v-if="(!mClass.link || mClass.link.length < 1) && mClass.action && mClass.action.length > 0"
+               @click="clickAction(mClass)" class="g-sup-action">[{{mClass.actionName}}]</i>
+          </div>
+          <div class="g-empty" v-if="!item.classes || item.classes.length < 1">
             <div class="empty-1"></div>
             <div class="empty-2"></div>
             <div class="empty-3"></div>
