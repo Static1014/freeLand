@@ -57,6 +57,9 @@ $(function () {
           {
             name: "改版抖音开放平台",
             link: "pj/ostron/index.html",
+          }, {
+            name: "欧思创",
+            link: "pj/ostron_r/index.html",
           }
         ]
       },
