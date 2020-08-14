@@ -81,7 +81,7 @@ function goBack() {
  * @returns {{screenWidth: number, screenHeight: number, bodyHeight: number, screenAvailWidth: number, screenAvailHeight: number, bodyWidth: number}}
  */
 function getDeviceSize() {
-  return {
+  let size = {
     screenWidth: window.screen.width,
     screenHeight: window.screen.height,
     screenAvailWidth: window.screen.availWidth,
@@ -89,6 +89,8 @@ function getDeviceSize() {
     bodyWidth: document.body.offsetWidth || document.documentElement.offsetWidth,
     bodyHeight: document.body.offsetHeight || document.documentElement.offsetHeight
   };
+  logi("设备尺寸：" + size);
+  return size;
 }
 
 /**
@@ -96,7 +98,9 @@ function getDeviceSize() {
  */
 function isPortraitWindow() {
   let size = getDeviceSize();
-  return size.screenHeight > size.screenWidth;
+  let is = size.screenHeight > size.screenWidth;
+  logi("当前设备是竖屏：" + is);
+  return is;
 }
 
 /**
@@ -164,4 +168,13 @@ function showToast(txt, bgColor, fontColor) {
       }, 300);
     }, 2000);
   }
+}
+
+/**
+ * 获取元素jq对象实际尺寸
+ * @param jqEl
+ * @returns {ClientRect | DOMRect}
+ */
+function getRealRectInJq(jqEl) {
+  return jqEl[0].getBoundingClientRect();
 }

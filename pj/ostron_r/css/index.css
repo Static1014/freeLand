@@ -123,10 +123,10 @@
 }
 
 .footer-index {
-  position: fixed;
-  bottom: 20px;
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
   width: 1140px;
-  margin: 0 auto;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);

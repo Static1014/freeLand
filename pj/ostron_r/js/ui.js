@@ -8,7 +8,9 @@ function addFooter() {
   $(".container").append(footer);
 
   let footerY = footer.offset().top;
-  if (footerY < document.body.clientHeight) {
+  let yh = footerY + getRealRectInJq(footer).height;
+  logi("footer位置判断：y+h：" + yh + ", 屏幕高：" + document.body.clientHeight);
+  if (yh < document.body.clientHeight) {
     footer.css({
       "position": "absolute",
       "left": 0,
