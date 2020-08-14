@@ -51,7 +51,12 @@
   width: 600px;
   text-align: center;
   float: left;
-  padding: 20px 20px;
+  padding: 0 20px 20px;
+}
+
+.dr-list-container {
+  width: 100%;
+  position: relative;
 }
 
 .dr-left .dr-list {
@@ -69,17 +74,49 @@
   -moz-box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
   position: relative;
+  top: 0;
+
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.dr-list .list-item:hover {
+  top: -10px;
 }
 
 .list-item.empty {
   box-shadow: none;
 }
 
-.list-item .dr-img{
+.list-item .dr-img {
   width: 100%;
   height: 100%;
   border-radius: 4px;
   object-fit: cover;
+}
+
+.list-item .dr-name {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, .4);
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 0 0 4px 4px;
+}
+
+.dr-list .list-item:hover .dr-name{
+  display: block;
 }
 
 .dr-more {

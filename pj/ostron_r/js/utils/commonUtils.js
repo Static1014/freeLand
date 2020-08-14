@@ -178,3 +178,11 @@ function showToast(txt, bgColor, fontColor) {
 function getRealRectInJq(jqEl) {
   return jqEl[0].getBoundingClientRect();
 }
+
+/**
+ * 数组求和
+ * @param arr
+ */
+function sum(arr) {
+  return eval(arr.join("+"));
+}
