@@ -1,0 +1,146 @@
+.header {
+  -webkit-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  -moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  position: fixed;
+
+  background: #fff;
+  z-index: 999;
+}
+
+.header > img {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-left: calc((100vw - 1140px) / 2);
+}
+
+.header h3 {
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  margin-left: 10px;
+  color: #250B1C;
+}
+
+.join-now {
+  height: 40px;
+  line-height: 40px;
+  float: right;
+  min-width: 100px;
+  margin-right: calc((100vw - 1140px) / 2);
+
+  text-align: center;
+  letter-spacing: 2px;
+  padding: 0 20px;
+  font-size: 18px;
+  color: #fff;
+  background: #EC3933;
+  background: linear-gradient(60deg, #EE554A, #EC3933);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.content {
+  padding: 100px 0 40px;
+  overflow: hidden;
+}
+
+.content .dr-left {
+  position: relative;
+  width: 600px;
+  text-align: center;
+  float: left;
+  padding: 20px 20px;
+}
+
+.dr-left .dr-list {
+  margin-top: 15px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.dr-list .list-item {
+  width: 120px;
+  height: 120px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.list-item.empty {
+  box-shadow: none;
+}
+
+.list-item .dr-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.dr-more {
+  height: 40px;
+  line-height: 40px;
+  min-width: 100px;
+  margin: 20px auto 0;
+  display: inline-block;
+
+  text-align: center;
+  letter-spacing: 2px;
+  padding: 0 20px;
+  font-size: 18px;
+  color: #fff;
+  background: grey;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.content .dr-right {
+  position: relative;
+  width: 400px;
+  float: right;
+  text-align: center;
+}
+
+.content h2 {
+  color: #73A04F;
+  line-height: 60px;
+  font-size: 30px;
+}
+
+.dr-right h3 {
+  display: inline;
+  color: #73A04F;
+  line-height: 40px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid;
+  font-size: 24px;
+}
+
+.dr-right .condition {
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.dr-right ol {
+  list-style: decimal;
+  margin-left: 20px;
+}
+
+.dr-right ol li {
+  font-size: 18px;
+  margin-top: 10px;
+  line-height: 22px;
+  color: #9C9C9C;
+}
+
+.dr-right .steps {
+  width: 100%;
+  margin-top: 30px;
+  text-align: left;
+}

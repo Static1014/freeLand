@@ -12,11 +12,16 @@ body {
 }
 
 .header {
-  height: 80px;
-  width: 1140px;
-  margin: 0 auto;
+  height: 40px;
+  width: 100vw;
+  min-width: 1200px;
   padding: 20px 0;
   font-size: 20px;
+}
+
+.content {
+  width: 1140px;
+  margin: 0 auto;
 }
 
 .footer {
@@ -24,10 +29,10 @@ body {
   width: 100%;
   text-align: center;
   background-color: #0E0F1A;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   color: white;
-  opacity: .3;
+  opacity: .6;
   font-size: 14px;
 }
 

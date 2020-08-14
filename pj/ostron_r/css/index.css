@@ -9,6 +9,11 @@
   -o-object-position: 50% 50%;
 }
 
+.header {
+  width: 1140px;
+  margin: 0 auto;
+}
+
 .header img {
   width: 96px;
   height: 40px;

@@ -4,6 +4,7 @@ body {
 
 .header {
   width: 400px;
+  min-width: 400px;
   margin: 0 auto;
   text-align: left;
 }
@@ -50,6 +51,7 @@ body {
 }
 
 .content {
+  margin-top: 40px;
   width: 100%;
   color: #A2A2A7;
 }
