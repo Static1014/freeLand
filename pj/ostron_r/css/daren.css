@@ -5,7 +5,7 @@
   position: fixed;
 
   background: #fff;
-  z-index: 999;
+  z-index: 998;
   overflow: hidden;
 }
 
@@ -52,7 +52,7 @@
   right: 50px;
 }
 
-.join-now.bottom{
+.join-now.bottom {
   position: relative;
   display: inline-block;
 }
@@ -196,4 +196,84 @@
   width: 100%;
   margin-top: 30px;
   text-align: left;
+}
+
+.join-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+  z-index: 999;
+  display: none;
+}
+
+.join-dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  padding: 20px 0;
+  width: 400px;
+  height: 400px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+  flex-wrap: wrap;
+
+  background: #FFFFFF;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 5px 5px rgba(0, 0, 0, .3);
+  -moz-box-shadow: 0 2px 5px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 2px 5px 5px rgba(0, 0, 0, .3);
+}
+
+.join-dialog h3 {
+  font-size: 26px;
+  color: #73A04F;
+  align-self: center;
+}
+
+.join-dialog span {
+  min-width: 70px;
+  height: 40px;
+  display: inline-block;
+  margin-left: 60px;
+  line-height: 40px;
+  color: #666666;
+  text-align: left;
+  font-size: 16px;
+}
+
+.join-dialog input, select {
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  width: 200px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #9C9C9C;
+  font-size: 16px;
+  color: #333;
+}
+
+.join-dialog button {
+  width: 200px;
+  height: 40px;
+  background: #73A04F;
+  color: #FFFFFF;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+  letter-spacing: 4px;
+  align-self: center;
+  outline: none;
+  cursor: pointer;
 }

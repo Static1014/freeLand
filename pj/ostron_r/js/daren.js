@@ -107,19 +107,46 @@ $(function () {
     return span;
   }
 
-  // let drDivs = document.getElementsByClassName("list-item");
-  // for (let i = 0; i < drDivs.length; i++) {
-  //   let content = drDivs[i];
-  //   if (content.className.indexOf("empty") === -1) {
-  //     let img = document.createElement("img");
-  //     let dr = drList[i % drList.length];
-  //     img.src = dr.img;
-  //     img.title = dr.name;
-  //     img.className = "dr-img";
-  //
-  //     content.append(img);
-  //   }
-  // }
+  $(".join-now").click(function () {
+    $(".join-container").show();
+  });
+  let dialogHideEnable = true;
+  $(".join-dialog").mouseover(function () {
+    dialogHideEnable = false;
+  }).mouseout(function () {
+    dialogHideEnable = true;
+  });
+
+  $(".join-container").click(function () {
+    if (dialogHideEnable) {
+      $(this).hide();
+    }
+  });
+  $("#btnJoin").click(function () {
+    let nameEl = $("#name")[0];
+    let typeEl = $("#type")[0];
+    let dyNoEl = $("#dyNo")[0];
+    let dyIDEl = $("#dyID")[0];
+    let name = nameEl.value;
+    let type = typeEl.value;
+    let dyNo = dyNoEl.value;
+    let dyID = dyIDEl.value;
+    logi(name + " - " + type + " - " + dyNo + " - " + dyID)
+    if (name.length < 1) {
+      showErrorToast(nameEl.placeholder);
+      return;
+    }
+    if (dyNo.length < 1) {
+      showErrorToast(dyNoEl.placeholder);
+      return;
+    }
+    if (dyID.length < 1) {
+      showErrorToast(dyIDEl.placeholder);
+      return;
+    }
+    showSuccToast("申请成功，请等待审核...");
+    $(".join-container").hide();
+  });
 
   addFooter();
 });

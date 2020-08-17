@@ -133,6 +133,9 @@ function copyToClipboard(txt) {
 function showErrorToast(txt) {
   showToast(txt, "#EE554A", "#FFF");
 }
+function showSuccToast(txt) {
+  showToast(txt, "#73A04F", "#FFF");
+}
 
 /**
  * 显示toast
@@ -154,6 +157,9 @@ function showToast(txt, bgColor, fontColor) {
     if (bgColor && fontColor) {
       toast.style.backgroundColor = bgColor;
       toast.style.color = fontColor;
+    } else {
+      toast.style.backgroundColor = "white";
+      toast.style.color = "grey";
     }
     toast.innerHTML = txt;
 
