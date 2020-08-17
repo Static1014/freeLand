@@ -133,6 +133,7 @@ function copyToClipboard(txt) {
 function showErrorToast(txt) {
   showToast(txt, "#EE554A", "#FFF");
 }
+
 function showSuccToast(txt) {
   showToast(txt, "#73A04F", "#FFF");
 }
@@ -172,7 +173,7 @@ function showToast(txt, bgColor, fontColor) {
       setTimeout(() => {
         toast.style.display = 'none';
       }, 300);
-    }, 2000);
+    }, 1000);
   }
 }
 
@@ -191,4 +192,26 @@ function getRealRectInJq(jqEl) {
  */
 function sum(arr) {
   return eval(arr.join("+"));
+}
+
+/**
+ * 滚动到指定元素
+ * @param jqEl  jQuery元素
+ */
+function scrollToJqEl(jqEl) {
+  $("html, body").animate({
+    scrollTop: jqEl.offset().top
+  }, 300);
+}
+
+/**
+ * 停止事件冒泡
+ * @param event
+ */
+function stopActionBubble(event) {
+  if (event && event.stopPropagation) {
+    event.stopPropagation();
+  } else {
+    window.event.cancelBubble = true;
+  }
 }
