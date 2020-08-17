@@ -52,7 +52,8 @@ $(function () {
   // 总行数
   let rowCount = Math.floor(drList.length / doubleRowSum) * 2 + (drList.length % doubleRowSum > rowSumOdd ? 2 : (drList.length % doubleRowSum === 0 ? 0 : 1));
 
-  let left = document.getElementsByClassName("dr-list-container")[0];
+  let left = $(".dr-list-container");
+  left.css("height", (120 + 15) * rowCount - 15);
   let usedCount = 0;
   for (let i = 0; i < rowCount; i++) {
     let drs = [null, null, null, null];
@@ -63,42 +64,46 @@ $(function () {
         usedCount++;
       }
     }
-    left.appendChild(createRow(drs));
+    left.append(createRow(drs));
   }
 
   function createRow(drs) {
-    let row = document.createElement("div");
-    row.className = "dr-list";
+    let row = $("<div></div>");
+    row.addClass("dr-list");
 
     for (let i = 0; i < drs.length; i++) {
-      row.appendChild(createItem(drs[i]));
+      row.append(createItem(drs[i]));
     }
 
     return row;
   }
 
   function createItem(dr) {
-    let drItem = document.createElement("div");
-    drItem.className = "list-item" + (dr ? "" : " empty");
+    let drItem = $("<div></div>");
+    drItem.addClass("list-item");
     if (dr) {
-      drItem.appendChild(createImg(dr));
-      drItem.appendChild(createName(dr.name));
+      drItem.append(createImg(dr));
+      drItem.append(createName(dr.name));
+    } else {
+      drItem.addClass("empty");
     }
     return drItem;
   }
 
   function createImg(dr) {
-    let img = document.createElement("img");
-    img.src = dr.img;
-    img.title = dr.name;
-    img.className = "dr-img";
+    let img = $("<img src='" + dr.img + "' alt='" + dr.name + "' title='" + dr.name + "'/>");
+    img.addClass("dr-img");
     return img;
   }
 
   function createName(name) {
-    let span = document.createElement("span");
-    span.className = "dr-name";
-    span.innerHTML = name;
+    // let span = document.createElement("span");
+    // span.className = "dr-name";
+    // span.innerHTML = name;
+
+    let span = $("<span/>");
+    span.addClass("dr-name");
+    span.html(name);
     return span;
   }
 
