@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <script type="text/javascript" src="js/libs/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="js/utils/commonUtils.js"></script>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 自定义 -->
+  <link rel="stylesheet" href="css/storeJoin.css">
+  <title>storeJoin</title>
+  <script type="text/javascript" src="js/businessUi.js"></script>
+  <link rel="shortcut icon" href="img/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-content">
+      <img src="img/icons/logo.png" alt="LOGO"/>
+      <h3>StoreJoin</h3>
+    </div>
+  </div>
+  <div class="content">
+    <h1>入驻申请</h1>
+    <div class="join-form">
+      <label for="name" class="item">
+        <span class="lb"><span style="color: red">*</span>企业名称：</span>
+        <input class="input-info" type="text" id="name" placeholder="请输入企业名称"/>
+      </label>
+      <label class="item" for="type">
+        <span class="lb"><span style="color: red">*</span>企业类型：</span>
+        <select id="type" class="input-info">
+          <option value="1">淘宝商家</option>
+          <option value="2">工厂</option>
+        </select>
+      </label>
+      <label for="sh" class="item">
+        <span class="lb"><span style="color: red">*</span>信用代码：</span>
+        <input class="input-info" id="sh" type="text" placeholder="请输入社会信用代码">
+      </label>
+      <label class="item">
+        <span class="lb"><span style="color: red">*</span>所在地区：</span>
+        <select name="province" id="province" class="input-info short">
+          <option value="">请选择</option>
+        </select>
+        <span class="area">省</span>
+        <select name="city" id="city" class="input-info short">
+          <option value="">请选择</option>
+        </select>
+        <span class="area">市</span>
+        <select name="town" id="town" class="input-info short">
+          <option value="">请选择</option>
+        </select>
+        <span class="area">区</span>
+      </label>
+      <label for="addr" class="item">
+        <span class="lb">详细地址：</span>
+        <input type="text" id="addr" class="input-info" placeholder="请输入详细地址">
+      </label>
+      <label for="licenseUpload" class="item">
+        <span class="lb"><span style="color: red">*</span>营业执照：</span>
+        <span class="upload-lic">请上传营业执照照片</span>
+      </label>
+      <div id="licenseUpload" style="margin-top: 20px"></div>
+      <label for="code" class="item">
+        <span class="lb"><span style="color: red">*</span>验证码：</span>
+        <input type="text" class="input-info code" placeholder="请输入验证码" id="code">
+        <canvas id="codeCanvas"></canvas>
+      </label>
+      <button type="submit" class="btn-submit btn">提交</button>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/ui/areaSelect/area.js"></script>
+<script type="text/javascript" src="js/ui/areaSelect/select.js"></script>
+<script type="text/javascript" src="js/ui/imgUpload.js"></script>
+<script type="text/javascript" src="js/ui/randomCode.js"></script>
+<script type="text/javascript" src="js/storeJoin.js"></script>
+</body>
+</html>

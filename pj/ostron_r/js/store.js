@@ -8,7 +8,7 @@ $(function () {
   $(".header-content h3").html(typeName);
 
   $(".join-now").click(function () {
-    showToast("立刻入驻")
+    window.open("storeJoin.html?type=" + type, "_self");
   });
 
   let conditions = [

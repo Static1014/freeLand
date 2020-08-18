@@ -1,0 +1,117 @@
+.header {
+  -webkit-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  -moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  position: fixed;
+
+  background: #fff;
+  z-index: 998;
+  overflow: hidden;
+}
+
+.header .header-content {
+  height: 40px;
+  width: 1140px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header img {
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+.header h3 {
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  margin-left: 10px;
+  color: #250B1C;
+}
+
+.content {
+  width: 600px;
+  padding: 120px 0 40px;
+  text-align: center;
+}
+
+.content h1 {
+  color: #73A04F;
+}
+
+.join-form {
+  padding: 20px;
+}
+
+.join-form .item {
+  display: block;
+  text-align: left;
+  height: 40px;
+  margin-top: 20px;
+  font-size: 17px;
+  color: #333;
+}
+
+.item .lb {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: right;
+  font-size: 17px;
+  color: #333;
+}
+
+.item .input-info {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: calc(100% - 110px);
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 0 4px;
+  font-size: 17px;
+  color: #333;
+  background: #FFFFFF;
+}
+
+.item .input-info::placeholder {
+  font-size: 17px;
+  color: #999;
+}
+
+.item .upload-lic {
+  color: #999;
+  font-size: 17px;
+}
+
+.item .area {
+  color: #666;
+  font-size: 17px;
+  visibility: hidden;
+}
+
+.item .input-info.short {
+  width: 100px;
+}
+
+.item .input-info.code {
+  width: calc(100% - 220px);
+}
+
+#codeCanvas {
+  display: block;
+  float: right;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #ccc;
+}
+
+.btn-submit {
+  display: block;
+  width: 200px;
+  height: 40px;
+  margin: 40px auto 0;
+  cursor: pointer;
+}

@@ -164,8 +164,19 @@ $(function () {
     return span;
   }
 
-  $(".join-now").click(function () {
+  $(".join-now").click(function (event) {
     $(".join-container").stop().fadeIn();
+    $(".join-dialog").css({
+      left: event.clientX,
+      top: event.clientY,
+      width: 0,
+      height: 0
+    }).stop().animate({
+      left: "50%",
+      top: "50%",
+      width: 400,
+      height: 400
+    }, "fast");
   });
   $(".join-dialog").click(function (event) {
     stopActionBubble(event);

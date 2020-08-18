@@ -131,11 +131,11 @@ function copyToClipboard(txt) {
  * @param txt 内容
  */
 function showErrorToast(txt) {
-  showToast(txt, "#EE554A", "#FFF");
+  showToast(txt, "#EE554A", "#FFF", 2000);
 }
 
 function showSucToast(txt) {
-  showToast(txt, "#73A04F", "#FFF");
+  showToast(txt, "#73A04F", "#FFF", 1500);
 }
 
 /**
@@ -143,8 +143,9 @@ function showSucToast(txt) {
  * @param txt 内容
  * @param bgColor 背景色
  * @param fontColor 字体颜色
+ * @param delayTime 停留时间
  */
-function showToast(txt, bgColor, fontColor) {
+function showToast(txt, bgColor, fontColor, delayTime) {
   if (txt) {
     let toast = $("#g-toast");
     if (toast.length < 1) {
@@ -152,18 +153,21 @@ function showToast(txt, bgColor, fontColor) {
       $("body").append(toast);
     }
     toast.css({
-      bottom: -100,
+      top: -100,
       maxWidth: isPortraitWindow() ? "80%" : "40%",
       backgroundColor: bgColor ? bgColor : "#fff",
       color: fontColor ? fontColor : "grey"
     });
     toast.html(txt);
 
+    if (!delayTime) {
+      delayTime = 1000;
+    }
     toast.stop().animate({
-      bottom: "10%",
+      top: "10%",
       opacity: 1
-    }).delay(1000).animate({
-      bottom: -100,
+    }).delay(delayTime).animate({
+      top: -100,
       opacity: 0
     });
   }
