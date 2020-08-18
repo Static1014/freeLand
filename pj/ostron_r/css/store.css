@@ -1,0 +1,95 @@
+.header {
+  -webkit-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  -moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  position: fixed;
+
+  background: #fff;
+  z-index: 998;
+  overflow: hidden;
+}
+
+.header .header-content {
+  height: 40px;
+  width: 1140px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header img {
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+.header h3 {
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  margin-left: 10px;
+  color: #250B1C;
+}
+
+.join-now {
+  height: 40px;
+  line-height: 40px;
+  width: 100px;
+
+  text-align: center;
+  letter-spacing: 2px;
+  padding: 0 20px;
+  font-size: 18px;
+  color: #fff;
+  background: #EC3933;
+  background: linear-gradient(60deg, #EE554A, #EC3933);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.join-now.top {
+  position: absolute;
+  right: 50px;
+}
+
+.content {
+  padding: 80px 0 40px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.banner {
+  text-align: center;
+  height: 400px;
+  background-image: url("//sf3-ttcdn-tos.pstatp.com/obj/ies-douyin-opencn/solution/commerce/banner.png");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center center;
+  background-color: rgb(251, 105, 124);
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  -o-transform: translate(-50%);
+  transform: translate(-50%);
+  text-align: center;
+}
+
+.banner-content span {
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 16px;
+  width: 500px;
+}
+
+.join-now.in-banner {
+  background: none;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  margin: 20px auto 0;
+}

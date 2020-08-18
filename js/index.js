@@ -91,6 +91,13 @@ $(function () {
         ]
       },
       {
+        color: "#0ba360",
+        subColor: "#3cba92",
+        title: "笔记",
+        subTitle: "整理筹备中",
+        classes: []
+      },
+      {
         color: "#B08D88",
         subColor: "#C2A7A3",
         title: "其他",
@@ -130,7 +137,7 @@ $(function () {
    * 添加设备信息group
    */
   getDeviceInfo().then((result) => {
-    logi(result);
+    logI(result);
     // 插入到倒数第二个位置，第一个参数为插入位置，第二个为要删除的元素位置，第三个为值
     data.groups.splice(data.groups.length - 1, 0, {
       color: "#2b5876",

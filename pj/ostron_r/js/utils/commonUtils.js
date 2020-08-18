@@ -8,9 +8,9 @@ let log = true;
  * 打印错误信息
  * @param msg
  */
-function loge(msg) {
+function logE(msg) {
   if (log) {
-    console.error(msg);
+    console.error(JSON.stringify(msg));
   }
 }
 
@@ -18,9 +18,9 @@ function loge(msg) {
  * 打印正常信息
  * @param msg
  */
-function logi(msg) {
+function logI(msg) {
   if (log) {
-    console.info(msg);
+    console.info(JSON.stringify(msg));
   }
 }
 
@@ -28,9 +28,9 @@ function logi(msg) {
  * 打印警告信息
  * @param msg
  */
-function logw(msg) {
+function logW(msg) {
   if (log) {
-    console.warn(msg);
+    console.warn(JSON.stringify(msg));
   }
 }
 
@@ -39,14 +39,14 @@ function logw(msg) {
  * @param name 参数名
  * @returns {string|null}
  */
-function getGetParam(name) {
+function parseGetParam(name) {
   // 构造一个含有目标参数的正则表达式对象
   let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
   // 匹配目标参数
   let r = window.location.search.substr(1).match(reg);
   if (r != null) {
     let val = decodeURI(r[2]);
-    console.info("参数" + name + "：" + val);
+    logI("参数" + name + "：" + val);
     return val;
   }
   // 返回参数值
@@ -89,7 +89,7 @@ function getDeviceSize() {
     bodyWidth: document.body.offsetWidth || document.documentElement.offsetWidth,
     bodyHeight: document.body.offsetHeight || document.documentElement.offsetHeight
   };
-  logi("设备尺寸：" + size);
+  logI("设备尺寸：" + JSON.stringify(size));
   return size;
 }
 
@@ -99,7 +99,7 @@ function getDeviceSize() {
 function isPortraitWindow() {
   let size = getDeviceSize();
   let is = size.screenHeight > size.screenWidth;
-  logi("当前设备是竖屏：" + is);
+  logI("当前设备是竖屏：" + is);
   return is;
 }
 
@@ -117,7 +117,7 @@ function copyToClipboard(txt) {
     i.setSelectionRange(0, txt.length);
     if (document.execCommand('copy')) {
       document.execCommand('copy');
-      logi("复制成功: " + txt);
+      logI("复制成功: " + txt);
       showToast("复制成功");
     } else {
       showErrorToast("当前设备不支持复制到剪切板");
@@ -134,7 +134,7 @@ function showErrorToast(txt) {
   showToast(txt, "#EE554A", "#FFF");
 }
 
-function showSuccToast(txt) {
+function showSucToast(txt) {
   showToast(txt, "#73A04F", "#FFF");
 }
 
@@ -146,34 +146,26 @@ function showSuccToast(txt) {
  */
 function showToast(txt, bgColor, fontColor) {
   if (txt) {
-    let toast = document.getElementById("g-toast");
-    if (!toast) {
-      toast = document.createElement("span");
-      toast.id = "g-toast";
-      document.body.append(toast);
+    let toast = $("#g-toast");
+    if (toast.length < 1) {
+      toast = $("<span id='g-toast' class='toast-default-span'></span>");
+      $("body").append(toast);
     }
-    toast.style.maxWidth = isPortraitWindow() ? "80%" : "40%";
-    toast.className = "toast-default-span";
+    toast.css({
+      bottom: -100,
+      maxWidth: isPortraitWindow() ? "80%" : "40%",
+      backgroundColor: bgColor ? bgColor : "#fff",
+      color: fontColor ? fontColor : "grey"
+    });
+    toast.html(txt);
 
-    if (bgColor && fontColor) {
-      toast.style.backgroundColor = bgColor;
-      toast.style.color = fontColor;
-    } else {
-      toast.style.backgroundColor = "white";
-      toast.style.color = "grey";
-    }
-    toast.innerHTML = txt;
-
-    toast.style.display = 'inline';
-    setTimeout(() => {
-      toast.style.opacity = "1";
-    }, 300);
-    setTimeout(() => {
-      toast.style.opacity = "0";
-      setTimeout(() => {
-        toast.style.display = 'none';
-      }, 300);
-    }, 1000);
+    toast.stop().animate({
+      bottom: "10%",
+      opacity: 1
+    }).delay(1000).animate({
+      bottom: -100,
+      opacity: 0
+    });
   }
 }
 

@@ -8,9 +8,9 @@ let log = true;
  * 打印错误信息
  * @param msg
  */
-function loge(msg) {
+function logE(msg) {
   if (log) {
-    console.error(msg);
+    console.error(JSON.stringify(msg));
   }
 }
 
@@ -18,9 +18,9 @@ function loge(msg) {
  * 打印正常信息
  * @param msg
  */
-function logi(msg) {
+function logI(msg) {
   if (log) {
-    console.info(msg);
+    console.info(JSON.stringify(msg));
   }
 }
 
@@ -28,9 +28,9 @@ function logi(msg) {
  * 打印警告信息
  * @param msg
  */
-function logw(msg) {
+function logW(msg) {
   if (log) {
-    console.warn(msg);
+    console.warn(JSON.stringify(msg));
   }
 }
 
@@ -39,14 +39,14 @@ function logw(msg) {
  * @param name 参数名
  * @returns {string|null}
  */
-function getGetParam(name) {
+function parseGetParam(name) {
   // 构造一个含有目标参数的正则表达式对象
   let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
   // 匹配目标参数
   let r = window.location.search.substr(1).match(reg);
   if (r != null) {
     let val = decodeURI(r[2]);
-    console.info("参数" + name + "：" + val);
+    logI("参数" + name + "：" + val);
     return val;
   }
   // 返回参数值
@@ -81,7 +81,7 @@ function goBack() {
  * @returns {{screenWidth: number, screenHeight: number, bodyHeight: number, screenAvailWidth: number, screenAvailHeight: number, bodyWidth: number}}
  */
 function getDeviceSize() {
-  return {
+  let size = {
     screenWidth: window.screen.width,
     screenHeight: window.screen.height,
     screenAvailWidth: window.screen.availWidth,
@@ -89,6 +89,8 @@ function getDeviceSize() {
     bodyWidth: document.body.offsetWidth || document.documentElement.offsetWidth,
     bodyHeight: document.body.offsetHeight || document.documentElement.offsetHeight
   };
+  logI("设备尺寸：" + JSON.stringify(size));
+  return size;
 }
 
 /**
@@ -96,7 +98,9 @@ function getDeviceSize() {
  */
 function isPortraitWindow() {
   let size = getDeviceSize();
-  return size.screenHeight > size.screenWidth;
+  let is = size.screenHeight > size.screenWidth;
+  logI("当前设备是竖屏：" + is);
+  return is;
 }
 
 /**
@@ -113,7 +117,7 @@ function copyToClipboard(txt) {
     i.setSelectionRange(0, txt.length);
     if (document.execCommand('copy')) {
       document.execCommand('copy');
-      logi("复制成功: " + txt);
+      logI("复制成功: " + txt);
       showToast("复制成功");
     } else {
       showErrorToast("当前设备不支持复制到剪切板");
@@ -130,6 +134,10 @@ function showErrorToast(txt) {
   showToast(txt, "#EE554A", "#FFF");
 }
 
+function showSucToast(txt) {
+  showToast(txt, "#73A04F", "#FFF");
+}
+
 /**
  * 显示toast
  * @param txt 内容
@@ -138,30 +146,64 @@ function showErrorToast(txt) {
  */
 function showToast(txt, bgColor, fontColor) {
   if (txt) {
-    let toast = document.getElementById("g-toast");
-    if (!toast) {
-      toast = document.createElement("span");
-      toast.id = "g-toast";
-      document.body.append(toast);
+    let toast = $("#g-toast");
+    if (toast.length < 1) {
+      toast = $("<span id='g-toast' class='toast-default-span'></span>");
+      $("body").append(toast);
     }
-    toast.style.maxWidth = isPortraitWindow() ? "80%" : "40%";
-    toast.className = "toast-default-span";
+    toast.css({
+      bottom: -100,
+      maxWidth: isPortraitWindow() ? "80%" : "40%",
+      backgroundColor: bgColor ? bgColor : "#fff",
+      color: fontColor ? fontColor : "grey"
+    });
+    toast.html(txt);
 
-    if (bgColor && fontColor) {
-      toast.style.backgroundColor = bgColor;
-      toast.style.color = fontColor;
-    }
-    toast.innerHTML = txt;
+    toast.stop().animate({
+      bottom: "10%",
+      opacity: 1
+    }).delay(1000).animate({
+      bottom: -100,
+      opacity: 0
+    });
+  }
+}
 
-    toast.style.display = 'inline';
-    setTimeout(() => {
-      toast.style.opacity = "1";
-    }, 300);
-    setTimeout(() => {
-      toast.style.opacity = "0";
-      setTimeout(() => {
-        toast.style.display = 'none';
-      }, 300);
-    }, 2000);
+/**
+ * 获取元素jq对象实际尺寸
+ * @param jqEl
+ * @returns {ClientRect | DOMRect}
+ */
+function getRealRectInJq(jqEl) {
+  return jqEl[0].getBoundingClientRect();
+}
+
+/**
+ * 数组求和
+ * @param arr
+ */
+function sum(arr) {
+  return eval(arr.join("+"));
+}
+
+/**
+ * 滚动到指定元素
+ * @param jqEl  jQuery元素
+ */
+function scrollToJqEl(jqEl) {
+  $("html, body").animate({
+    scrollTop: jqEl.offset().top
+  }, 300);
+}
+
+/**
+ * 停止事件冒泡
+ * @param event
+ */
+function stopActionBubble(event) {
+  if (event && event.stopPropagation) {
+    event.stopPropagation();
+  } else {
+    window.event.cancelBubble = true;
   }
 }

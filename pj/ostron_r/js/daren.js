@@ -182,7 +182,7 @@ $(function () {
     let type = typeEl.value;
     let dyNo = dyNoEl.value;
     let dyID = dyIDEl.value;
-    logi(name + " - " + type + " - " + dyNo + " - " + dyID);
+    logI(name + " - " + type + " - " + dyNo + " - " + dyID);
     if (name.length < 1) {
       showErrorToast(nameEl.placeholder);
       return;
@@ -195,7 +195,7 @@ $(function () {
       showErrorToast(dyIDEl.placeholder);
       return;
     }
-    showSuccToast("申请成功，请等待审核...");
+    showSucToast("申请成功，请等待审核...");
     $(".join-container").hide();
   });
 
@@ -229,12 +229,12 @@ $(function () {
       let loveEl = $(".count .love-count").eq(index);
       drList[index].love = parseInt(loveEl.html()) + 1;
       loveEl.html(drList[index].love);
-      showSuccToast("点赞成功");
+      showSucToast("点赞成功");
     });
     let doDetail = $("<img class='clickDetail' src='img/icons/action_detail.png' alt='详情' title='详情'/>");
     action.append(doDetail);
     doDetail.click(function () {
-      showSuccToast("查看详情" + index);
+      showSucToast("查看详情" + index);
     });
     item.append(action);
     return item;

@@ -8,8 +8,8 @@ function addHeader() {
   css.setAttribute("href", "css/jike.css");
   document.head.appendChild(css);
 
-  let title = getGetParam('title');
-  let videoUrl = getGetParam('video');
+  let title = parseGetParam('title');
+  let videoUrl = parseGetParam('video');
 
   let header = $("<div></div>");
   header.id = 'header';

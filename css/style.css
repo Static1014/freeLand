@@ -44,7 +44,7 @@ table td {
 .toast-default-span {
   max-width: 40%;
   position: fixed;
-  bottom: 10%;
+  bottom: -100px;
   left: 50%;
 
   -webkit-transform: translateX(-50%);
@@ -65,10 +65,4 @@ table td {
   background: grey;
   color: white;
   line-height: 20px;
-
-  -webkit-transition: opacity 0.3s;
-  -moz-transition: opacity 0.3s;
-  -ms-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  transition: opacity 0.3s;
 }
