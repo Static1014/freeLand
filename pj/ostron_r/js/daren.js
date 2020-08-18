@@ -165,13 +165,13 @@ $(function () {
   }
 
   $(".join-now").click(function () {
-    $(".join-container").show();
+    $(".join-container").stop().fadeIn();
   });
   $(".join-dialog").click(function (event) {
     stopActionBubble(event);
   });
   $(".join-container").click(function () {
-    $(this).hide();
+    $(this).stop().fadeOut();
   });
   $("#btnJoin").click(function () {
     let nameEl = $("#name")[0];
