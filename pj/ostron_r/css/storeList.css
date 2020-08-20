@@ -1,0 +1,386 @@
+.header {
+  -webkit-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  -moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .6);
+  position: fixed;
+
+  background: #fff;
+  z-index: 998;
+  overflow: hidden;
+}
+
+.header .header-content {
+  height: 40px;
+  width: 1140px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header img {
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+.header h3 {
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  margin-left: 10px;
+  color: #250B1C;
+}
+
+.content {
+  padding: 80px 0 40px;
+  overflow: hidden;
+  width: 1140px;
+  position: relative;
+}
+
+.filter-result {
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-result .all-clear {
+  display: block;
+  float: left;
+  margin: 10px 0 0 5px;
+  height: 24px;
+  width: 90px;
+  line-height: 24px;
+  font-size: 16px;
+  color: #333333;
+  cursor: pointer;
+}
+
+.filter-result .all-clear:hover {
+  color: #E54249;
+}
+
+.filter-result .area-result {
+  display: none;
+  float: left;
+  max-width: 1006px;
+  margin: 10px 0 0;
+  padding: 0 29px 0 5px;
+  font-size: 15px;
+  color: #666666;
+  line-height: 24px;
+  cursor: pointer;
+  border: 1px solid #cccccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+.area-result.show {
+  display: block;
+}
+
+.area-result span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background-size: 20px;
+  background: url("../img/icons/ic_ele.png") no-repeat 6px -138px;
+
+  -webkit-transition: background-position 0.15s;
+  -moz-transition: background-position 0.15s;
+  -ms-transition: background-position 0.15s;
+  -o-transition: background-position 0.15s;
+  transition: background-position 0.15s;
+}
+
+.area-result:hover {
+  border: 1px solid #E54249;
+}
+
+.area-result:hover span {
+  background: url("../img/icons/ic_ele.png") no-repeat 6px -156px, #E54249;
+}
+
+
+/*.area-result span {*/
+/*  background: #E54249;*/
+/*}*/
+
+
+.filter {
+  margin: 10px 0;
+  font-size: 15px;
+  overflow: hidden;
+}
+
+.f-area {
+  position: relative;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: #f3f3f3;
+  overflow: hidden;
+}
+
+.f-area .lb {
+  display: block;
+  float: left;
+  width: 90px;
+  margin-top: 10px;
+  padding-left: 5px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 15px;
+  color: #333;
+}
+
+.f-area .area-all {
+  position: relative;
+  width: 1045px;
+  float: right;
+  padding: 10px 0;
+  text-align: center;
+  background: white;
+}
+
+.area-all .area-list {
+  margin: 0 10px;
+  width: 900px;
+  height: auto;
+  text-align: left;
+  overflow: hidden;
+}
+
+.area-list .area-item {
+  display: inline-block;
+  width: 80px;
+  height: 25px;
+  line-height: 25px;
+  margin-top: 5px;
+  margin-left: 5px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px dashed #ccc;
+  color: #666;
+  font-size: 15px;
+}
+
+.area-item.top-line {
+  margin-top: 0;
+}
+
+.area-item.selected {
+  border: 1px solid #E54249;
+  color: #E54249;
+}
+
+.area-item:hover {
+  border: 1px dashed #E54249;
+}
+
+.area-item.no-default-area {
+  display: none;
+}
+
+/*.area-item.default-area-all {*/
+/*}*/
+
+.area-all .btn-right {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  height: 25px;
+  width: 120px;
+  float: right;
+}
+
+.btn-right .r-btn {
+  position: relative;
+  display: inline-block;
+  height: 23px;
+  line-height: 23px;
+  border: 1px solid #ddd;
+  color: #666;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.r-btn span {
+  position: absolute;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  background-size: 20px;
+  background: url("../img/icons/ic_ele.png") no-repeat;
+
+  -webkit-transition: background-position 0.15s;
+  -moz-transition: background-position 0.15s;
+  -ms-transition: background-position 0.15s;
+  -o-transition: background-position 0.15s;
+  transition: background-position 0.15s;
+}
+
+.r-btn:hover {
+  color: #E54249;
+}
+
+.r-btn.more {
+  padding: 0 20px 0 4px;
+}
+
+.more span {
+  right: 1px;
+  background-position: 3px 7px;
+}
+
+.more:hover span {
+  background-position: 3px -9px;
+}
+
+.r-btn.multi {
+  padding: 0 4px 0 20px;
+}
+
+.multi span {
+  left: 1px;
+  background-position: 3px -63px;
+}
+
+.multi:hover span {
+  background-position: 3px -83px;
+}
+
+.area-all .btn-bottom {
+  margin-top: 10px;
+  display: none;
+}
+
+.btn-bottom .b-btn {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.b-btn.confirm {
+  background: #E74649;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+.b-btn.cancel {
+  background: #F7F7F7;
+  border: 1px solid #ddd;
+  color: #666;
+  font-size: 14px;
+}
+
+.store-header {
+  margin: 10px 0 0;
+  width: 1130px;
+  overflow: hidden;
+}
+
+.store-divider span {
+  height: 24px;
+  line-height: 24px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.store-list {
+  position: relative;
+  width: 1140px;
+}
+
+.store-header {
+  width: 1138px;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+}
+
+.store-header div {
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: #F3F3F3;
+  border-right: 1px solid #cccccc;
+  font-size: 14px;
+  color: #333333;
+}
+
+.store-list .img {
+  width: 200px;
+  /*background: yellow;*/
+}
+
+.store-list .name {
+  width: 274px;
+  /*background: blue;*/
+}
+
+.store-list .owner {
+  width: 240px;
+  /*background: purple;*/
+}
+
+.store-list .type {
+  width: 200px;
+  /*background: silver;*/
+}
+
+.store-list .enter {
+  width: 220px;
+  /*background: orange;*/
+  border-right: none;
+}
+
+.store-item > div {
+  position: relative;
+  float: left;
+  height: 120px;
+  line-height: 20px;
+  text-align: left;
+  border-right: 1px solid transparent;
+  font-size: 14px;
+  color: #333333;
+  border-bottom: 1px solid #cccccc;
+  cursor: pointer;
+}
+
+.store-item:hover > div {
+  background: #f7f7f7;
+}
+
+.store-item > div > span {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  left: 5px;
+  width: calc(100% - 10px);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.store-item .img,
+.store-item .type,
+.store-item .enter {
+  text-align: center;
+}
+
+.store-item img {
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  object-fit: cover;
+  -o-object-fit: cover;
+}

@@ -1,4 +1,12 @@
 /**
+ * 获取当前时间
+ */
+function currentTimeStr() {
+  let d = new Date();
+  return d.getFullYear() + "." + (d.getMonth() + 1) + "." + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+}
+
+/**
  * 日志打印开关
  * @type {boolean}
  */
@@ -7,30 +15,42 @@ let log = true;
 /**
  * 打印错误信息
  * @param msg
+ * @param tag 标记
  */
-function logE(msg) {
+function logE(msg, tag) {
   if (log) {
-    console.error(JSON.stringify(msg));
+    if (!tag) {
+      tag = "";
+    }
+    console.error(currentTimeStr() + " : " + tag + "  ===>  " + JSON.stringify(msg));
   }
 }
 
 /**
  * 打印正常信息
  * @param msg
+ * @param tag 标记
  */
-function logI(msg) {
+function logI(msg, tag) {
   if (log) {
-    console.info(JSON.stringify(msg));
+    if (!tag) {
+      tag = "";
+    }
+    console.info(currentTimeStr() + " : " + tag + "  ===>  " + JSON.stringify(msg));
   }
 }
 
 /**
  * 打印警告信息
  * @param msg
+ * @param tag 标记
  */
-function logW(msg) {
+function logW(msg, tag) {
   if (log) {
-    console.warn(JSON.stringify(msg));
+    if (!tag) {
+      tag = "";
+    }
+    console.warn(currentTimeStr() + " : " + tag + "  ===>  " + JSON.stringify(msg));
   }
 }
 

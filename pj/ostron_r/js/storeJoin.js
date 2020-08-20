@@ -62,9 +62,7 @@ $(function () {
     typeName = "商家入驻";
     qyTypes = sjTypes;
   }
-  $(document).attr("title", typeName);
-  $(".header-content h3").html(typeName);
-
+  setTitle(typeName);
 
   // 企业类型
   for (let i = 0; i < qyTypes.length; i++) {

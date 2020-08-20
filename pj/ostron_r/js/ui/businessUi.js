@@ -1,3 +1,18 @@
+/**
+ * 设置页面title和header中的title
+ * @param title 标题
+ */
+function setTitle(title) {
+  $(document).prop("title", title);
+  let headerTitle = $(".header-content h3");
+  if (headerTitle.length > 0) {
+    headerTitle.html(title);
+  }
+}
+
+/**
+ * 添加Footer
+ */
 function addFooter() {
   let footer = $("<div></div>");
   footer.addClass("footer");

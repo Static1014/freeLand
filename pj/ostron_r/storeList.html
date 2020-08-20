@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <script type="text/javascript" src="js/libs/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="js/utils/commonUtils.js"></script>
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/style.css">
+  <link rel="shortcut icon" href="img/icons/favicon.ico" type="image/x-icon">
+  <!-- 自定义 -->
+  <link rel="stylesheet" href="css/storeList.css">
+  <title>storeList</title>
+  <script type="text/javascript" src="js/ui/businessUi.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-content">
+      <img src="img/icons/logo.png" alt="LOGO"/>
+      <h3>Store</h3>
+    </div>
+  </div>
+  <div class="content">
+    <div class="filter-result">
+      <div class="all-clear">全部地区 ></div>
+      <div class="area-result"><span></span></div>
+    </div>
+    <div class="filter">
+      <div class="f-area">
+        <span class="lb">所在区域：</span>
+        <div class="area-all">
+          <div class="area-list"></div>
+          <div class="btn-right">
+            <div class="r-btn more">更多<span></span></div>
+            <div class="r-btn multi">多选<span></span></div>
+          </div>
+          <div class="btn-bottom">
+            <div class="b-btn confirm">确定</div>
+            <div class="b-btn cancel">取消</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="store-divider">
+      <span>查询结果</span>
+<!--      <div class="page-controller"></div>-->
+    </div>
+    <div class="store-list">
+      <div class="store-header">
+        <div class="img">店标</div>
+        <div class="name">店名</div>
+        <div class="owner">卖家名称</div>
+        <div class="type">店铺类型</div>
+        <div class="enter">店铺入口</div>
+      </div>
+      <div class="store-item">
+        <div class="img"><img src="img/icons/logo.png" alt=""></div>
+        <div class="name"><span>牛肉xxx牛肉xxx牛肉xxx</span></div>
+        <div class="owner"><span>东北大牛哥东北大牛哥东北大牛哥东北大牛哥</span></div>
+        <div class="type"><span>淘宝</span></div>
+        <div class="enter"><span>店铺入口</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/storeList.js"></script>
+<script type="text/javascript" src="js/ui/areaSelect/area.js"></script>
+</body>
+</html>
