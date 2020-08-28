@@ -87,7 +87,8 @@ function getDeviceSize() {
     screenAvailWidth: window.screen.availWidth,
     screenAvailHeight: window.screen.availHeight,
     bodyWidth: document.body.offsetWidth || document.documentElement.offsetWidth,
-    bodyHeight: document.body.offsetHeight || document.documentElement.offsetHeight
+    bodyHeight: document.body.offsetHeight || document.documentElement.offsetHeight,
+    ratio: window.devicePixelRatio
   };
   logI("设备尺寸：" + JSON.stringify(size));
   return size;

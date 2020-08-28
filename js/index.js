@@ -157,6 +157,12 @@ $(function () {
           title: "当前设备屏幕可用区域尺寸(如Mac中去除Docker和MenuBar，单位像素)",
           action: "copy",
           actionName: "复制"
+        }, {
+          name: "屏幕像素比例",
+          sub: "Window.devicePixelRatio: " + result.ratio,
+          title: "当前设备屏幕屏幕像素比例",
+          action: "copy",
+          actionName: "复制"
         },
       ]
     });

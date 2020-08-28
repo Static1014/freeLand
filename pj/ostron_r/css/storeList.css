@@ -383,4 +383,5 @@
   margin: 10px auto;
   object-fit: cover;
   -o-object-fit: cover;
+  border-radius: 4px;
 }
