@@ -1,0 +1,159 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #FFF;
+  font-family: Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+:root {
+  font-size: 16px;
+}
+.container {
+  width: 1180px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  color: #333;
+}
+a:visited {
+  color: #333;
+}
+a:hover {
+  color: #F06E38;
+}
+a:active {
+  color: #333;
+}
+.indent {
+  text-indent: 2em;
+}
+.btn {
+  display: block;
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.btn.btn-outline-suc {
+  border: 1px solid #00aca8;
+  background: #FFF;
+  color: #00aca8;
+}
+.btn.btn-outline-suc:hover {
+  background: #00aca8;
+  color: #FFF;
+}
+.btn.btn-solid-danger {
+  background: #ec0101;
+  border: 1px solid #ec0101;
+  color: #FFF;
+}
+.btn.btn-solid-danger:hover {
+  background: #ce0101;
+  border: 1px solid #ce0101;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+.col-1 {
+  grid-column: span 1;
+}
+.col-2 {
+  grid-column: span 2;
+}
+.col-3 {
+  grid-column: span 3;
+}
+.col-4 {
+  grid-column: span 4;
+}
+.col-5 {
+  grid-column: span 5;
+}
+.col-6 {
+  grid-column: span 6;
+}
+.col-7 {
+  grid-column: span 7;
+}
+.col-8 {
+  grid-column: span 8;
+}
+.col-9 {
+  grid-column: span 9;
+}
+.col-10 {
+  grid-column: span 10;
+}
+.col-11 {
+  grid-column: span 11;
+}
+.col-12 {
+  grid-column: span 12;
+}
+@media only screen and (max-width: 767px) {
+  :root {
+    font-size: 14px;
+  }
+  .container {
+    width: calc(100% - 20px);
+  }
+  .col-sx-1 {
+    grid-column: span 1;
+  }
+  .col-sx-2 {
+    grid-column: span 2;
+  }
+  .col-sx-3 {
+    grid-column: span 3;
+  }
+  .col-sx-4 {
+    grid-column: span 4;
+  }
+  .col-sx-5 {
+    grid-column: span 5;
+  }
+  .col-sx-6 {
+    grid-column: span 6;
+  }
+  .col-sx-7 {
+    grid-column: span 7;
+  }
+  .col-sx-8 {
+    grid-column: span 8;
+  }
+  .col-sx-9 {
+    grid-column: span 9;
+  }
+  .col-sx-10 {
+    grid-column: span 10;
+  }
+  .col-sx-11 {
+    grid-column: span 11;
+  }
+  .col-sx-12 {
+    grid-column: span 12;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .container {
+    width: calc(100% - 20px);
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 960px) {
+  .container {
+    width: 940px;
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 960px) and (min-width: 1200px) {
+  .container {
+    width: 1180px;
+  }
+}

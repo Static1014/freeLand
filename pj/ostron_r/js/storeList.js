@@ -167,10 +167,31 @@ $(function () {
     }
   }
 
+  /**
+   * 请求列表
+   * @param filter
+   */
   function requestList(filter) {
     logI(filter);
 
+    $.ajax({
+      type: "POST",
+      url: "https://api.taobaokeapi.com",
+      data: {
+        usertoken: "0795bb1bbbc7c8ce92d23ef43a8e17f2",
+        method: "taobao.tbk.shop.get",
+        fields: "user_id,shop_title,shop_type,seller_nick,pict_url,shop_url",
+        q: "服装"
+      },
+      dataType: "jsonp",
+      crossDomain: true,
+      success: function (data) {
+        logI(data, "店铺请求结果");
+      }
+    })
   }
+
+  requestList();
 
   addFooter();
 });

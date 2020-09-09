@@ -1,0 +1,50 @@
+@import "_constant";
+
+.page-indicator {
+  display: flex;
+  justify-content: flex-end;
+
+  .pi-item {
+    display: block;
+    padding: .4rem .9rem;
+    border: @base-border;
+    margin-left: -1px;
+    background: @baseColorWhite;
+    color: @baseColorFontGray6;
+    font-size: .9rem;
+
+    &:first-child {
+      border-top-left-radius: .3rem;
+      border-bottom-left-radius: .3rem;
+    }
+
+    &:last-child {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+
+    &:hover {
+      background: @baseColorPrimary;
+      color: @baseColorWhite;
+      border-color: @baseColorPrimary;
+    }
+  }
+
+  .pi-current {
+    background: @baseColorPrimary;
+    color: @baseColorWhite;
+    border-color: @baseColorPrimary;
+
+    &:hover {
+      color: @baseColorWhite;
+    }
+  }
+
+  .pi-more {
+    cursor: default;
+
+    &:hover {
+      color: @baseColorFontGray6;
+    }
+  }
+}

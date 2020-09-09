@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../../libs/jquery-1.12.4.js"></script>
+  <link rel="stylesheet" href="css/libs/font-awesome.min.css">
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/_p_margin.css">
+  <link rel="stylesheet" href="css/_common.css">
+  <link rel="stylesheet" href="css/_ui_card.css">
+  <link rel="stylesheet" href="css/_ui_page_indicator.css">
+  <link rel="stylesheet" href="css/_ui_header.css">
+  <link rel="stylesheet" href="css/index.css">
+  <title>首页</title>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a href="" class="logo">抖联</a>
+      <label>
+        <i class="fa fa-bars"></i>
+      </label>
+      <div class="collapse">
+        <ul class="links">
+          <li><a href="">在线课程</a></li>
+          <li><a href="">社区讨论</a></li>
+          <li><a href="">直播间</a></li>
+          <li><a href="">课程实战</a></li>
+          <li><a href="">联系我们</a></li>
+        </ul>
+        <div class="user">
+          <a href="">登录</a>
+          <a href="">注册</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="container">
+    <div class="row mt-2">
+      <div class="col-9 col-sx-12">
+        <div class="card">
+          <div class="card-header">
+            在线课程
+          </div>
+          <div class="card-body list-group">
+            <div class="list-item">
+              <span class="title"><i class="fa fa-graduation-cap"></i> HTML5 基础教程</span>
+              <span class="time"><i class="fa fa-calendar"></i> 2020-09-09</span>
+            </div>
+            <div class="list-item">
+              <span class="title"><i class="fa fa-graduation-cap"></i> CSS3 基础教程</span>
+              <span class="time"><i class="fa fa-calendar"></i> 2020-09-09</span>
+            </div>
+            <div class="list-item">
+              <span class="title"><i class="fa fa-graduation-cap"></i> JavaScript 基础教程</span>
+              <span class="time"><i class="fa fa-calendar"></i> 2020-09-09</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="page-indicator">
+              <a href="" class="pi-item pi-current"><</a>
+              <a href="" class="pi-item">1</a>
+              <a href="" class="pi-item">2</a>
+              <a href="" class="pi-item">3</a>
+              <a href="" class="pi-item">4</a>
+              <a href="" class="pi-item">...</a>
+              <a href="" class="pi-item">13</a>
+              <a href="" class="pi-item">></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 col-sx-12">
+        <div class="card" id="introduce">
+          <div class="card-header">
+            本站简介
+          </div>
+          <div class="card-body">
+            <p class="abs indent">这是一个根据向军老师<a href="https://www.bilibili.com/video/BV1uE411Q7tx"
+                                               target="_blank">B站教学视频</a>做的模仿<a href="https://www.houdunren.com/"
+                                                                                target="_blank">后盾人</a>的响应式布局页面。后盾人是一个主张友好、分享、自由的技术交流社区。
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="actions">
+              <a class="a-item btn btn-solid-danger" href="https://www.bilibili.com/video/BV1uE411Q7tx">视频教程</a>
+              <a class="a-item btn btn-outline-suc ml-05" href="https://www.houdunren.com/">后盾人</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  $(function () {
+    let $win = $(window);
+    let $collapse = $(".collapse");
+    $win.resize(function () {
+      if ($collapse.css("display") === 'none' && $win.outerWidth() >= 768) {
+        $collapse.css("display", 'flex');
+      } else if ($collapse.css("display") === 'flex' && $win.outerWidth() < 768) {
+        $collapse.css("display", 'none');
+      }
+    });
+
+    let menuBtn = $(".fa-bars");
+    menuBtn.on("click", function () {
+      $collapse.stop().slideToggle("fast", function () {
+        if ($collapse.css("display") !== 'none')
+          $collapse.css("display", 'flex');
+      });
+    })
+  });
+</script>
+</body>
+</html>

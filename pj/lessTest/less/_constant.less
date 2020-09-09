@@ -1,0 +1,42 @@
+@baseWidthSmallX: 767px;
+@baseWidthSmall: 768px;
+@baseWidthMedium: 960px;
+@baseWidthLarge: 1200px;
+
+@baseColorPrimary: #F06E38;
+@baseColorPrimaryDark: darken(@baseColorPrimary, 10%);
+@baseColorFontDark0: #000;
+@baseColorFontDark3: #333;
+@baseColorFontDark5: #555;
+@baseColorFontGray6: #666;
+@baseColorFontGray9: #999;
+@baseColorFontGrayC: #CCC;
+@baseColorWhite: #FFF;
+@baseColorGreen: #00aca8;
+@baseColorRed: #ec0101;
+
+@baseRadius03: .3rem;
+@base-border: 1px solid @baseColorFontGrayC;
+
+.border(@color: @baseColorFontGrayC) when (iscolor(@color)) {
+  border: 1px solid @color;
+}
+
+.border-radius(@radius: @baseRadius03) when (isnumber(@radius)) {
+  border-radius: @radius;
+}
+
+.base-indent() {
+  text-indent: 2em;
+}
+
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  -webkit-box-shadow: @style @c;
+  -moz-box-shadow: @style @c;
+  -o-box-shadow: @style @c;
+  box-shadow: @style @c;
+}
+
+.box-shadow(@style: 0 0 5px, @alpha: 0.2) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}

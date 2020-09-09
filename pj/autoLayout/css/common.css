@@ -1,0 +1,7 @@
+@import "screen.css" screen;
+@import "print.css" print;
+
+* {
+  margin: 0;
+  padding: 0;
+}

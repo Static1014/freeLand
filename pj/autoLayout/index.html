@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <script type="text/javascript" src="../../libs/jquery-1.12.4.js"></script>
+  <title>响应式布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      position: relative;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      width: 1170px;
+      min-height: 200px;
+      margin: 0 auto;
+      text-align: center;
+      background: pink;
+    }
+
+    .nav {
+      /*width: 100%;*/
+      height: 40px;
+      /*text-align: center;*/
+      background: #73A04F;
+    }
+
+    .nav a {
+      display: block;
+      width: 97px;
+      height: 40px;
+      line-height: 40px;
+      float: left;
+      background: yellow;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        width: 100%;
+      }
+
+      .nav {
+        width: 100%;
+      }
+
+      .nav a {
+        width: 20%;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .container {
+        width: 750px;
+      }
+
+      .nav a {
+        width: 75px;
+      }
+    }
+
+    /*中等屏幕*/
+    @media screen and (min-width: 992px) {
+      .container {
+        width: 970px;
+      }
+
+      .nav a {
+        width: 97px;
+      }
+    }
+
+    /*大屏幕*/
+    @media screen and (min-width: 1200px) {
+      .container {
+        width: 1200px;
+      }
+
+      .nav a {
+        width: 120px;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    $(function () {
+      let $win = $(window);
+      $win.load(function () {
+        let $container = $(".container");
+        let $sp = $container.find("#sw");
+        let $cp = $sp.siblings("#cw");
+
+        $sp.text("屏幕宽度：" + $win.outerWidth());
+        $cp.text("Container宽度：" + $container.outerWidth());
+        $win.resize(function () {
+          $sp.text("屏幕宽度：" + $win.outerWidth());
+          $cp.text("Container宽度：" + $container.outerWidth());
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<div class="container">
+  <p id="sw"></p>
+  <p id="cw"></p>
+  <div class="nav">
+    <a href="#">导航1</a>
+    <a href="#">导航2</a>
+    <a href="#">导航3</a>
+    <a href="#">导航4</a>
+    <a href="#">导航5</a>
+    <a href="#">导航6</a>
+    <a href="#">导航7</a>
+    <a href="#">导航8</a>
+    <a href="#">导航9</a>
+    <a href="#">导航10</a>
+  </div>
+</div>
+</body>
+</html>

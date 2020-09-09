@@ -1,0 +1,128 @@
+@import "_constant";
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: @baseColorWhite;
+  font-family: Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  font-size: 16px;
+}
+
+.container {
+  width: @baseWidthLarge - 20px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: @baseColorFontDark3;
+}
+
+a:visited {
+  color: @baseColorFontDark3;
+}
+
+a:hover {
+  color: @baseColorPrimary;
+}
+
+a:active {
+  color: @baseColorFontDark3;
+}
+
+// 首行缩进
+.indent {
+  .base-indent();
+}
+
+.btn {
+  display: block;
+  padding: .3rem 1rem;
+  font-size: 1rem;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  .border-radius();
+  cursor: pointer;
+
+  &.btn-outline-suc {
+    .border(@baseColorGreen);
+    background: @baseColorWhite;
+    color: @baseColorGreen;
+
+    &:hover {
+      background: @baseColorGreen;
+      color: @baseColorWhite;
+    }
+  }
+
+  &.btn-solid-danger {
+    background: @baseColorRed;
+    .border(@baseColorRed);
+    color: @baseColorWhite;
+
+    &:hover {
+      background: darken(@baseColorRed, 6%);
+      .border(darken(@baseColorRed, 6%));
+    }
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+//  通用1-12列宽
+each(range(12), {
+  .col-@{value} {
+    grid-column: span @value;
+  }
+});
+
+// 最小尺寸
+@media only screen and (max-width: @baseWidthSmallX) {
+
+  :root {
+    font-size: 14px;
+  }
+
+  .container {
+    width: calc(100% - 20px);
+  }
+
+  // 小尺寸1-12列宽
+  each(range(12), {
+    .col-sx-@{value} {
+      grid-column: span @value;
+    }
+  });
+}
+
+// 小尺寸
+@media only screen and (min-width: @baseWidthSmall) {
+  .container {
+    width: calc(100% - 20px);
+  }
+
+  // 中等尺寸
+  @media (min-width: @baseWidthMedium) {
+    .container {
+      width: @baseWidthMedium - 20px;
+    }
+
+    // 最大尺寸
+    @media (min-width: @baseWidthLarge) {
+      .container {
+        width: @baseWidthLarge - 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.card {
+  border-radius: 0.3rem;
+  border: 1px solid #CCC;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.card .card-header {
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid #CCC;
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.card .card-body {
+  padding: 0 0.5rem;
+}
+.card .card-footer {
+  padding: 0.5rem;
+  border-top: 1px solid #CCC;
+  color: #333;
+}

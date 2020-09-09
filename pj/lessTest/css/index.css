@@ -1,0 +1,41 @@
+.list-group .list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #CCC;
+  margin-left: 0.6rem;
+  cursor: pointer;
+}
+.list-group .list-item:last-child {
+  border-bottom: none;
+}
+.list-group .list-item .title {
+  color: #666;
+  font-size: 1rem;
+}
+.list-group .list-item .time {
+  color: #999;
+  font-size: 0.9rem;
+}
+.list-group .list-item:hover .title,
+.list-group .list-item:hover .time {
+  color: #F06E38;
+}
+#introduce .abs {
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1.4rem;
+  color: #999;
+}
+#introduce .abs a {
+  color: #00aca8;
+}
+#introduce .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#introduce .actions .a-item {
+  flex: auto;
+}

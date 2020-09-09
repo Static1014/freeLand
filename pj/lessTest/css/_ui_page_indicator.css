@@ -1,0 +1,40 @@
+.page-indicator {
+  display: flex;
+  justify-content: flex-end;
+}
+.page-indicator .pi-item {
+  display: block;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #CCC;
+  margin-left: -1px;
+  background: #FFF;
+  color: #666;
+  font-size: 0.9rem;
+}
+.page-indicator .pi-item:first-child {
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+.page-indicator .pi-item:last-child {
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+.page-indicator .pi-item:hover {
+  background: #F06E38;
+  color: #FFF;
+  border-color: #F06E38;
+}
+.page-indicator .pi-current {
+  background: #F06E38;
+  color: #FFF;
+  border-color: #F06E38;
+}
+.page-indicator .pi-current:hover {
+  color: #FFF;
+}
+.page-indicator .pi-more {
+  cursor: default;
+}
+.page-indicator .pi-more:hover {
+  color: #666;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 自定义 -->
+  <title>media01</title>
+  <!-- 多条件媒体查询 -->
+  <!-- media默认时all -->
+  <!--  <style media="screen and (min-width: 768px) and (max-width: 1200px)">-->
+  <style media="(min-width: 768px) and (max-width: 1200px)">
+    /* 媒体查询，屏幕宽度在[768, 1200]之间的样式 */
+    .container p {
+      color: blue;
+    }
+  </style>
+  <style>
+    @media print {
+      /* 打印机中样式 */
+      .container p {
+        color: #0E0F1A;
+      }
+    }
+
+    /*媒体查询 逻辑或 条件使用,英文逗号*/
+    /*屏幕宽度<=767或者横屏时，字体红色*/
+    /*@media screen and (max-width: 767px), screen and (orientation: landscape) {*/
+    @media screen and (max-width: 767px) {
+      .container p {
+        color: red;
+      }
+    }
+
+    @media screen and (max-width: 350px) {
+      .container p {
+        color: yellow;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <p>我是一个P元素</p>
+</div>
+</body>
+</html>

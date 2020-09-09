@@ -1,0 +1,95 @@
+header {
+  padding: 10px 0;
+  border-bottom: 5px solid #F06E38;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+header .nav {
+  display: flex;
+  align-items: center;
+}
+header .nav .logo {
+  margin-right: 100px;
+  color: #F06E38;
+  font-size: 27px;
+  font-weight: 700;
+}
+header .nav .logo + label {
+  display: none;
+}
+header .nav .collapse {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1;
+  margin-left: 0;
+}
+header .nav .collapse .links {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+header .nav .collapse .links li {
+  margin-right: 20px;
+}
+header .nav .collapse .links li a {
+  color: #666;
+  font-size: 1rem;
+}
+header .nav .collapse .links li a:hover {
+  color: #F06E38;
+}
+header .nav .collapse .user a {
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #fff;
+  background: #F06E38;
+}
+header .nav .collapse .user a:hover {
+  background: #e44f11;
+}
+header .nav .collapse .user a:first-child {
+  color: #F06E38;
+  background: none;
+  border: 1px solid #F06E38;
+  margin-right: 5px;
+}
+header .nav .collapse .user a:first-child:hover {
+  color: #FFF;
+  background: #F06E38;
+}
+@media only screen and (max-width: 767px) {
+  header .container .nav {
+    position: relative;
+    flex-flow: row wrap;
+  }
+  header .container .nav .logo {
+    margin-right: auto;
+  }
+  header .container .nav .logo + label {
+    display: inline;
+    padding: 4px 8px;
+    color: #F06E38;
+    border: 1px solid #F06E38;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  header .container .nav .collapse {
+    display: none;
+    flex-flow: column nowrap;
+    flex: none;
+    width: 100%;
+    margin-left: 20px;
+  }
+  header .container .nav .collapse .links {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    margin: 10px 0;
+  }
+  header .container .nav .collapse .links li a {
+    line-height: 30px;
+  }
+}

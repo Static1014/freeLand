@@ -1,0 +1,57 @@
+@import "_constant";
+
+.list-group {
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: @base-border;
+    margin-left: .6rem;
+    cursor: pointer;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .title {
+      color: @baseColorFontGray6;
+      font-size: 1rem;
+    }
+
+    .time {
+      color: @baseColorFontGray9;
+      font-size: .9rem;
+    }
+
+    &:hover {
+      .title, .time {
+        color: @baseColorPrimary;
+      }
+    }
+  }
+}
+
+#introduce {
+  .abs {
+    padding: 1rem .5rem;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    color: @baseColorFontGray9;
+
+    a {
+      color: @baseColorGreen;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .a-item {
+      flex: auto;
+    }
+  }
+}
