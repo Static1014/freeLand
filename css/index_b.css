@@ -1,0 +1,11 @@
+header h1 {
+  color: #608ef4;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.list div {
+  background: pink;
+}
+.list div:nth-child(2) {
+  background: yellow;
+}
