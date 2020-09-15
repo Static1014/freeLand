@@ -1,4 +1,5 @@
 $(function () {
+  let $win = $(window);
   // $("#h_title").html("jquery test");
   // $("#content_box").css("height", window.screen.availHeight / 2);
   // $("#content_box").css("background-image", "url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595500028785&di=0cf22a478d30ebded2b409ca8dc560f0&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2017-11-29%2F5a1e22998f77f.jpg)");
@@ -128,7 +129,7 @@ $(function () {
             actionName: "复制"
           }, {
             name: "视口尺寸",
-            sub: "(" + deviceInfo.bodyWidth + "px, " + deviceInfo.bodyHeight + "px)",
+            sub: "(" + $win.outerWidth() + "px, " + $win.outerHeight() + "px)",
             title: "当前页面尺寸",
             action: "copy",
             actionName: "复制"
@@ -152,7 +153,7 @@ $(function () {
     ]
   };
 
-  let vHome = new Vue({
+  new Vue({
     el: "#home",
     data: {
       data: data
@@ -189,31 +190,7 @@ $(function () {
 
   function updateDeviceInfo() {
     deviceInfo = getDeviceSize();
-    // vHome.$data.data.groups[0].title = "111111"+$(window).outerWidth();
-    $.each(vHome.$data.data, function (key, value) {
-      if (key === "groups") {
-        $.each(value, function (i, group) {
-          if (group.name === "设备信息") {
-            $.each(group.classes, function (j, classInfo) {
-              switch (classInfo.name) {
-                case "屏幕尺寸":
-                  classInfo.sub = "(" + deviceInfo.screenWidth + "px, " + deviceInfo.screenHeight + "px)";
-                  break;
-                case "屏幕可用区域尺寸":
-                  classInfo.sub = "(" + deviceInfo.screenAvailWidth + "px, " + deviceInfo.screenAvailHeight + "px)";
-                  break;
-                case "屏幕像素比例":
-                  classInfo.sub = "devicePixelRatio: " + deviceInfo.ratio;
-                  break;
-                case "视口尺寸":
-                  classInfo.sub = "(" + deviceInfo.bodyWidth + "px, " + deviceInfo.bodyHeight + "px)";
-                  break;
-              }
-            })
-          }
-        })
-      }
-    })
+    data.groups[3].classes[3].sub = "(" + $win.outerWidth() + "px, " + $win.outerHeight() + "px)";
   }
 
   // 当前是否是两列
@@ -222,7 +199,6 @@ $(function () {
   let fallWidth = 768;
   // 上一次两列时单列宽
   let lastFallItemWidth = 0;
-  let $win = $(window);
   $win.load(function () {
     // 页面加载完之后才能进行瀑布布局
     isDouble = $win.outerWidth() >= fallWidth;
