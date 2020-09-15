@@ -42,7 +42,7 @@ $(function () {
         classes: [
           {
             name: "《极客学院》Web前段开发教学 - 第一部分：H5+CSS+JS",
-            link: "pj/jike/index_old.html",
+            link: "pj/jike/index.html",
           }, {
             name: "轮播图 - 手动无循环",
             link: "pj/banner/banner.html",
@@ -51,7 +51,7 @@ $(function () {
             link: "pj/autoLayout/media01.html",
           }, {
             name: "媒体查询基础 - 1",
-            link: "pj/autoLayout/index_old.html",
+            link: "pj/autoLayout/index.html",
           }, {
             name: "媒体查询基础 - 2",
             link: "pj/autoLayout/media01.html",
@@ -66,13 +66,13 @@ $(function () {
         classes: [
           {
             name: "改版抖音开放平台",
-            link: "pj/ostron/index_old.html",
+            link: "pj/ostron/index.html",
           }, {
             name: "欧思创",
-            link: "pj/ostron_r/index_old.html",
+            link: "pj/ostron_r/index.html",
           }, {
             name: "响应式布局 - less基本使用",
-            link: "pj/lessTest/index_old.html",
+            link: "pj/lessTest/index.html",
           }
         ]
       },
