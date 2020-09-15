@@ -1,67 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <!-- 依托设备宽度，允许 0.5 - 2倍缩放 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <script type="text/javascript" src="libs/jquery-1.12.4.min.js"></script>
-  <script type="text/javascript" src="libs/vue.min.js"></script>
-  <script type="text/javascript" src="js/utils/commonUtils.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="js/libs/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="js/libs/vue.min.js"></script>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  <link rel="stylesheet" type="text/css" href="css/index.css"/>
-  <script src="js/constant.js"></script>
+  <link rel="stylesheet" href="css/index.css">
   <title>xiongjian.vip</title>
 </head>
 <body>
 <div class="container" id="home">
-  <div class="header">
-    <a class="h-title" href="">{{data.title}}
-      <sup>[1]
-        <div class="h-tip">
-          <p>这里有一个小小的说明。</p>
-          <br/>
-          <p>作为一个前端的初学者，这个页面极其简陋。而且处于设计方面的欠缺，我总觉得这里有一个标题，但是又不知道叫什么好，所有，这里才有了个域名。</p>
-          <br/>
-          <p># a标签中，通过href=""刷新当前页</p>
-        </div>
-      </sup>
-    </a>
-  </div>
-  <div class="group-parent">
-    <div class="group-item" v-for="item in data.groups">
-      <div class="g-container">
-        <div class="group-header"
-             :style="'background: linear-gradient(60deg,' + item.subColor + ', ' + item.color + ');'">
-          <span class="g-title">{{item.title}}</span>
-          <span class="g-title sub">{{item.subTitle}}</span>
-        </div>
-        <div class="g-content">
-          <div v-for="(mClass, index) in item.classes" v-if="mClass.name.length > 0" class="g-content-item">
-            <a :id="'a-item-'+index"
-               :href="mClass.link && mClass.link.length > 0 ? mClass.link : '#a-item-'+index"
-               :onmouseover="'this.style.color=\''+item.color+'\''"
-               :onmouseout="'this.style.color=\''+data.fontColor+'\''"
-               :title="mClass.title"
-            >
-              {{mClass.name}}
-            </a>
-            <span class="content-span" v-if="mClass.sub && mClass.sub.length > 0" :style="'color: '+item.subColor"> - {{mClass.sub}}</span>
-            <i v-if="(!mClass.link || mClass.link.length < 1) && mClass.action && mClass.action.length > 0"
-               @click="clickAction(mClass)" class="g-sup-action">[{{mClass.actionName}}]</i>
+  <header>
+    <h1>xiongjian.vip</h1>
+  </header>
+  <div></div>
+  <section>
+    <div class="list row">
+      <div class="col-xs-12 col-sm-6 list-item" v-for="item in data.groups">
+        <div class="card">
+          <div class="header"
+               :style="'background: linear-gradient(60deg,' + item.subColor + ', ' + item.color + ');'">
+            <span class="title">{{item.title}}</span>
+            <span class="sub">{{item.subTitle}}</span>
           </div>
-          <div class="g-empty" v-if="!item.classes || item.classes.length < 1">
-            <div class="empty-1"></div>
-            <div class="empty-2"></div>
-            <div class="empty-3"></div>
-          </div>
+          <ul class="body">
+            <li v-for="(mClass, index) in item.classes" v-if="mClass.name.length > 0">
+              <a class="name"
+                 :href="mClass.link && mClass.link.length > 0 ? mClass.link : '#a-item-'+index"
+                 :onmouseover="'this.style.color=\''+item.color+'\''"
+                 :onmouseout="'this.style.color=\''+data.fontColor+'\''">
+                {{mClass.name}}
+              </a>
+              <span class="sub" v-if="mClass.sub && mClass.sub.length > 0" :style="'color: '+item.subColor"> - {{mClass.sub}}</span>
+              <i v-if="(!mClass.link || mClass.link.length < 1) && mClass.action && mClass.action.length > 0"
+                 @click="clickAction(mClass)" class="action">[{{mClass.actionName}}]</i>
+            </li>
+            <div class="empty" v-if="!item.classes || item.classes.length < 1">
+              <p class="empty-item"></p>
+              <p class="empty-item"></p>
+              <p class="empty-item"></p>
+            </div>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </div>
+<script type="text/javascript" src="js/constant.js"></script>
+<script type="text/javascript" src="js/utils/EasyLazyload.js"></script>
+<script type="text/javascript" src="js/utils/commonUtils.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

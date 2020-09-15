@@ -1,0 +1,131 @@
+@import "../bootstrap/less/variables";
+@import "../bootstrap/less/mixins";
+
+/*
+  屏幕宽度
+ */
+@const-mobile-sizes: 320px, 360px, 375px, 384px, 400px, 414px, 425px, @screen-xs;
+@const-pc-sizes: 540px, 720px, 750px, @screen-sm, @screen-md, @screen-lg;
+@const-count: 15;
+
+
+/*
+  字体大小
+ */
+@const-font: 36px;
+@base-font: @const-font;
+@font-size-base: 15rem / @base-font;
+@font-size-lg: 17rem / @base-font;
+@font-size-sm: 14rem / @base-font;
+
+@line-height-base: 18rem / @base-font;
+@line-height-lg: 20rem / @base-font;
+@line-height-sm: 16rem / @base-font;
+
+
+/*
+  颜色
+ */
+@color-white: #FFF;
+@color-border: @gray-lighter;
+
+
+/*
+  字体颜色
+ */
+@color-font-white: #FFF;
+@color-font-darker: @gray-darker;
+@color-font-dark: @gray-dark;
+@color-font-gray: @gray;
+@color-font-gray-light: @gray-light;
+@color-font-gray-lighter: @gray-lighter;
+
+
+/*
+  基础边框与圆角设置
+ */
+@baseRadius02: .2rem;
+@base-border: 1px solid @color-border;
+
+/*
+  基础边框
+ */
+.border(@color: @color-border) when (iscolor(@color)) {
+  border: 1px solid @color;
+}
+
+/*
+  基础圆角
+ */
+.border-radius(@radius: @baseRadius02) when (isnumber(@radius)) {
+  border-radius: @radius;
+}
+
+/*
+  基础文字缩进
+ */
+.base-indent() {
+  text-indent: 2em;
+}
+
+/*
+  单行文字末尾缺省
+ */
+.single-line-text {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*
+  自定义阴影
+ */
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  -webkit-box-shadow: @style @c;
+  -moz-box-shadow: @style @c;
+  -o-box-shadow: @style @c;
+  box-shadow: @style @c;
+}
+
+/*
+  基础阴影
+ */
+.box-shadow(@style: 0 0 5px, @alpha: 0.2) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+
+/*
+  基础transform
+ */
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -ms-transform: @transform;
+  -o-transform: @transform;
+  transform: @transform;
+}
+
+/*
+  transform-left 横向居中
+ */
+.transform-center-x() {
+  left: 50%;
+  .transform(translateX(-50%));
+}
+
+/*
+  transform-top 垂直居中
+ */
+.transform-center-y() {
+  top: 50%;
+  .transform(translateY(-50%));
+}
+/*
+  transform-top-left 居中
+ */
+.transform-center-y() {
+  left: 50%;
+  top: 50%;
+  .transform(translate(-50%));
+}

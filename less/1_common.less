@@ -1,0 +1,97 @@
+@import "0_constant";
+
+@base-font: @const-font;
+:root {
+  font-size: @base-font;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: @color-font-gray;
+  text-decoration: none;
+}
+
+.container {
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+
+  div {
+    padding: 0;
+  }
+}
+
+/*
+  基础Toast样式
+ */
+.toast-default-span {
+  position: fixed;
+  bottom: -1rem;
+  .transform-center-x();
+  max-width: 40%;
+  cursor: pointer;
+  z-index: 9999;
+  padding: 10rem / @base-font 20rem / @base-font;
+  text-align: center;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  .border-radius();
+  .box-shadow();
+  background: @color-font-gray;
+  color: @color-font-dark;
+}
+
+/*
+ * 小于320px的屏幕，固定宽度和字体
+ */
+@media only screen and (max-width: 319px) {
+  @base-font: 320px / @const-count;
+
+  :root {
+    font-size: @base-font;
+  }
+}
+
+/*
+ * 不同手机屏幕按梯次设置字体，宽度100%
+ */
+each(@const-mobile-sizes, {
+  @media only screen and (min-width: @value) {
+    @base-font: @value / @const-count;
+
+    :root {
+      font-size: @base-font;
+    }
+  }
+})
+
+/*
+ *  width为768px及以上默认为PC，宽度按sm、md、lg，字体固定
+ */
+each(@const-pc-sizes, {
+  @media only screen and (min-width: @value) {
+    @base-font: @const-font;
+
+    :root {
+      font-size: @base-font;
+    }
+  }
+})

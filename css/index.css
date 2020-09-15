@@ -1,197 +1,288 @@
+/*
+  屏幕宽度
+ */
+/*
+  字体大小
+ */
+/*
+  颜色
+ */
+/*
+  字体颜色
+ */
+/*
+  基础边框与圆角设置
+ */
+/*
+  基础边框
+ */
+/*
+  基础圆角
+ */
+/*
+  基础文字缩进
+ */
+/*
+  单行文字末尾缺省
+ */
+.single-line-text {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*
+  自定义阴影
+ */
+/*
+  基础阴影
+ */
+/*
+  基础transform
+ */
+/*
+  transform-left 横向居中
+ */
+/*
+  transform-top 垂直居中
+ */
+/*
+  transform-top-left 居中
+ */
+:root {
+  font-size: 36px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
-  background: #eee;
+  position: relative;
 }
-
+ul,
+ol {
+  list-style: none;
+}
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #555555;
+  text-decoration: none;
+}
 .container {
-  width: 1140px;
-  margin: 0 auto;
+  padding: 0;
 }
-
-.header {
-  width: 100%;
-  height: 100px;
-  text-align: center;
-  position: relative;
+.row {
+  margin: 0;
 }
-
-.header .h-title {
-  font-size: 50px;
-  color: cornflowerblue;
-  margin-top: 30px;
-  display: inline-block;
-  cursor: pointer;
-
-  text-shadow: 5px 5px 3px rgba(0, 0, 0, .3);
+.row div {
+  padding: 0;
 }
-
-.h-title sup {
-  font-size: 14px;
-  color: grey;
-  text-shadow: none;
-  position: relative;
-}
-
-.header .h-tip {
-  position: absolute;
+/*
+  基础Toast样式
+ */
+.toast-default-span {
+  position: fixed;
+  bottom: -1rem;
   left: 50%;
-  top: 100%;
-  z-index: 100;
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  -ms-transform: translateY(10px);
-  -o-transform: translateY(10px);
-  transform: translateY(10px);
-  padding: 10px;
-  color: #8c8c8c;
-  background: #eee;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
-  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
-  box-shadow: 0 0 5px rgba(0, 0, 0, .3);
-
-  display: none;
-  width: 350px;
-  border: 1px solid rgba(0, 0, 0, .3);
-  border-radius: 8px;
-}
-
-.h-title sup:hover .h-tip {
-  display: block;
-}
-
-.h-tip p {
-  text-shadow: none;
-  font-size: 14px;
-  text-align: left;
-}
-
-
-.group {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  max-width: 40%;
+  cursor: pointer;
+  z-index: 9999;
+  padding: 0.27777778rem 0.55555556rem;
   text-align: center;
-  margin-top: 60px;
+  font-size: 0.41666667rem;
+  line-height: 0.5rem;
+  border-radius: 0.2rem;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #555555;
+  color: #333333;
 }
-
-.group.first {
-  margin-top: 20px;
+/*
+ * 小于320px的屏幕，固定宽度和字体
+ */
+@media only screen and (max-width: 319px) {
+  :root {
+    font-size: 21.33333333px;
+  }
 }
-
-.group h2 {
-  color: cornflowerblue;
+/*
+ * 不同手机屏幕按梯次设置字体，宽度100%
+ */
+@media only screen and (min-width: 320px) {
+  :root {
+    font-size: 21.33333333px;
+  }
 }
-
-.group-parent {
-  width: 1140px;
-  padding-bottom: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
+@media only screen and (min-width: 360px) {
+  :root {
+    font-size: 24px;
+  }
 }
-
-.group-parent .group-item {
-  width: 550px;
-  margin-top: 40px;
+@media only screen and (min-width: 375px) {
+  :root {
+    font-size: 25px;
+  }
 }
-
-.group-item .g-container {
-  width: 100%;
+@media only screen and (min-width: 384px) {
+  :root {
+    font-size: 25.6px;
+  }
+}
+@media only screen and (min-width: 400px) {
+  :root {
+    font-size: 26.66666667px;
+  }
+}
+@media only screen and (min-width: 414px) {
+  :root {
+    font-size: 27.6px;
+  }
+}
+@media only screen and (min-width: 425px) {
+  :root {
+    font-size: 28.33333333px;
+  }
+}
+@media only screen and (min-width: 480px) {
+  :root {
+    font-size: 32px;
+  }
+}
+/*
+ *  width为768px及以上默认为PC，宽度按sm、md、lg，字体固定
+ */
+@media only screen and (min-width: 540px) {
+  :root {
+    font-size: 36px;
+  }
+}
+@media only screen and (min-width: 720px) {
+  :root {
+    font-size: 36px;
+  }
+}
+@media only screen and (min-width: 750px) {
+  :root {
+    font-size: 36px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  :root {
+    font-size: 36px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  :root {
+    font-size: 36px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  :root {
+    font-size: 36px;
+  }
+}
+.card {
   position: relative;
-  margin-top: 30px;
-  border-radius: 5px;
-  background: #fff;
-  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  padding: 0 0.41666667rem 0.55555556rem !important;
 }
-
-.g-container .group-header {
+.card .header {
+  position: relative;
   display: inline-block;
   z-index: 99;
-  min-width: 40%;
-  margin-top: -30px;
-  margin-left: 20px;
-  padding: 15px;
-  border-radius: 5px;
   background: linear-gradient(60deg, #eca444, #e68e17);
-  box-shadow: 0 12px 20px -10px rgba(234, 153, 45, 0.28), 0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(234, 153, 45, 0.2);
+  border-radius: 0.2rem;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 0.27777778rem;
+  min-width: 40%;
+  margin: 0 0.41666667rem;
+  max-width: calc(100% - 2 * 0.41666667rem);
 }
-
-.group-header .g-title {
+.card .header .title {
+  font-size: 0.47222222rem;
+  line-height: 0.47222222rem;
+  color: #FFF;
   display: block;
-  z-index: 99;
-  font-size: 18px;
-  color: #F4F4F3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-.group-header .g-title.sub {
-  font-size: 15px;
-  z-index: 99;
-  margin-top: 10px;
+.card .header .sub {
+  margin-top: 0.27777778rem;
+  font-size: 0.38888889rem;
+  line-height: 0.38888889rem;
+  color: #FFF;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-.g-container .g-content {
-  margin-top: 10px;
-  padding: 10px 20px;
+.card .body {
+  border-radius: 0.2rem;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #FFF;
+  position: relative;
+  z-index: 80;
+  top: -0.55555556rem;
+  left: 0;
+  padding: 0.55555556rem 0.41666667rem 0.27777778rem;
+  margin-bottom: -0.55555556rem;
 }
-
-.g-content .g-empty {
-  width: 100%;
+.card .body li {
+  margin-top: 0.27777778rem;
 }
-
-.g-empty .empty-1 {
-  width: 60%;
-  height: 16px;
-  background: #efefef;
+.card .body li .name {
+  font-size: 0.41666667rem;
+  line-height: 0.5rem;
+  color: #555555;
 }
-
-.g-empty .empty-2 {
-  width: 100%;
-  margin-top: 10px;
-  height: 16px;
-  background: #efefef;
+.card .body li .sub {
+  font-size: 0.41666667rem;
+  line-height: 0.5rem;
 }
-
-.g-empty .empty-3 {
-  width: 30%;
-  height: 16px;
-  margin-top: 10px;
-  background: #efefef;
-}
-
-.g-content .g-content-item {
-  margin-top: 12px;
-}
-
-.g-content .g-content-item:first-child {
-  margin-top: 0;
-}
-
-.g-content a {
-  line-height: 20px;
-  font-size: 16px;
-}
-
-.g-content a:link {
-  color: #5C5753;
-}
-
-.g-content a:visited {
-  color: #5C5753;
-}
-
-.g-content a:hover {
-  color: #e68e17;
-}
-
-.g-content a:active {
-  color: #5C5753;
-}
-
-.content-span {
-  font-size: 14px;
-}
-
-.g-content .g-sup-action {
-  font-size: 14px;
+.card .body li .action {
+  margin-left: 0.11111111rem;
+  font-size: 0.38888889rem;
+  line-height: 0.38888889rem;
   color: skyblue;
   cursor: pointer;
+}
+.card .body .empty {
+  width: 100%;
+}
+.card .body .empty .empty-item {
+  margin: 0.27777778rem 0 0 !important;
+  width: 60%;
+  height: 0.5rem;
+  background: #eeeeee;
+}
+.card .body .empty .empty-item:nth-child(2) {
+  width: 40%;
+}
+.card .body .empty .empty-item:nth-child(3) {
+  width: 80%;
+}
+header h1 {
+  color: #337ab7;
+  text-align: center;
+  font-size: 1rem;
+  margin: 0.55555556rem;
+}
+.list {
+  position: relative;
 }

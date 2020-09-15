@@ -1,19 +1,97 @@
-@import "pj";
+@import "1_common";
 
-.i-card {
+@m-h: 15rem / @base-font;
+@m-t: 10rem / @base-font;
+@m-b: 20rem / @base-font;
+@p-a: 10rem / @base-font;
+
+.card {
+  position: relative;
+  padding: 0 @m-h @m-b !important;
+
   .header {
+    position: relative;
+    display: inline-block;
+    z-index: 99;
+    background: linear-gradient(60deg, #eca444, #e68e17);
+    .border-radius();
+    .box-shadow();
+    padding: @p-a;
+    min-width: 40%;
+    margin: 0 @m-h;
+    max-width: calc(100% - 2 * @m-h);
+
     .title {
-      font-size: @base-font-lg;
+      font-size: @font-size-lg;
+      line-height: @font-size-lg;
+      color: @color-font-white;
+      .single-line-text();
     }
 
     .sub {
-      font-size: @base-font-sm;
+      margin-top: @m-t;
+      font-size: @font-size-sm;
+      line-height: @font-size-sm;
+      color: @color-font-white;
+      .single-line-text();
     }
   }
 
-  .i-body {
+  .body {
+    .border-radius();
+    .box-shadow();
+    background: @color-white;
+
+    @mt-body: 20rem / @base-font;
+
+    position: relative;
+    // 相同定位模式下z-index才生效
+    z-index: 80;
+    top: -@mt-body;
+    left: 0;
+    padding: @mt-body @m-h @p-a;
+    // 弥补相对定位top上移的位置
+    margin-bottom: -@mt-body;
+
     li {
-      font-size: @base-font;
+      margin-top: @m-t;
+
+      .name {
+        font-size: @font-size-base;
+        line-height: @line-height-base;
+        color: @color-font-gray;
+      }
+
+      .sub {
+        font-size: @font-size-base;
+        line-height: @line-height-base;
+      }
+
+      .action {
+        margin-left: 4rem / @base-font;
+        font-size: @font-size-sm;
+        line-height: @font-size-sm;
+        color: skyblue;
+        cursor: pointer;
+      }
+    }
+
+    .empty {
+      width: 100%;
+
+      .empty-item {
+        margin: @m-t 0 0 !important;
+        width: 60%;
+        height: @line-height-base;
+        background: @color-font-gray-lighter;
+
+        &:nth-child(2){
+          width: 40%;
+        }
+        &:nth-child(3){
+          width: 80%;
+        }
+      }
     }
   }
 }

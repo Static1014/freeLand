@@ -1,4 +1,12 @@
 /**
+ * 获取当前时间
+ */
+function currentTimeStr() {
+  let d = new Date();
+  return d.getFullYear() + "." + (d.getMonth() + 1) + "." + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+}
+
+/**
  * 日志打印开关
  * @type {boolean}
  */
@@ -7,30 +15,42 @@ let log = true;
 /**
  * 打印错误信息
  * @param msg
+ * @param tag 标记
  */
-function logE(msg) {
+function logE(msg, tag) {
   if (log) {
-    console.error(JSON.stringify(msg));
+    if (!tag) {
+      tag = "";
+    }
+    console.error(currentTimeStr() + " : " + tag + "  ===>  " + JSON.stringify(msg));
   }
 }
 
 /**
  * 打印正常信息
  * @param msg
+ * @param tag 标记
  */
-function logI(msg) {
+function logI(msg, tag) {
   if (log) {
-    console.info(JSON.stringify(msg));
+    if (!tag) {
+      tag = "";
+    }
+    console.info(currentTimeStr() + " : " + tag + "  ===>  " + JSON.stringify(msg));
   }
 }
 
 /**
  * 打印警告信息
  * @param msg
+ * @param tag 标记
  */
-function logW(msg) {
+function logW(msg, tag) {
   if (log) {
-    console.warn(JSON.stringify(msg));
+    if (!tag) {
+      tag = "";
+    }
+    console.warn(currentTimeStr() + " : " + tag + "  ===>  " + JSON.stringify(msg));
   }
 }
 
@@ -132,11 +152,11 @@ function copyToClipboard(txt) {
  * @param txt 内容
  */
 function showErrorToast(txt) {
-  showToast(txt, "#EE554A", "#FFF");
+  showToast(txt, "#EE554A", "#FFF", 2000);
 }
 
 function showSucToast(txt) {
-  showToast(txt, "#73A04F", "#FFF");
+  showToast(txt, "#73A04F", "#FFF", 1500);
 }
 
 /**
@@ -144,26 +164,31 @@ function showSucToast(txt) {
  * @param txt 内容
  * @param bgColor 背景色
  * @param fontColor 字体颜色
+ * @param delayTime 停留时间
  */
-function showToast(txt, bgColor, fontColor) {
+function showToast(txt, bgColor, fontColor, delayTime) {
   if (txt) {
     let toast = $("#g-toast");
     if (toast.length < 1) {
+      // 未添加toast元素
       toast = $("<span id='g-toast' class='toast-default-span'></span>");
       $("body").append(toast);
     }
     toast.css({
-      bottom: -100,
+      bottom: "-1rem",
       maxWidth: isPortraitWindow() ? "80%" : "40%",
-      backgroundColor: bgColor ? bgColor : "#fff",
-      color: fontColor ? fontColor : "grey"
+      backgroundColor: bgColor ? bgColor : "#777",
+      color: fontColor ? fontColor : "#FFF"
     });
     toast.html(txt);
 
+    if (!delayTime) {
+      delayTime = 1000;
+    }
     toast.stop().animate({
-      bottom: "10%",
+      bottom: "4rem",
       opacity: 1
-    }).delay(1000).animate({
+    }).delay(delayTime).animate({
       bottom: -100,
       opacity: 0
     });
@@ -207,4 +232,51 @@ function stopActionBubble(event) {
   } else {
     window.event.cancelBubble = true;
   }
+}
+
+/**
+ * 懒加载启动
+ */
+function lazyLoadImg() {
+  // 检查是否需要启动懒加载
+  if ($("img[data-lazy-src]").length < 1) {
+    logI("EasyLazyload - 未找到包含data-lazy-src属性的img元素，无需启动懒加载!");
+    return;
+  }
+
+  // 检查是否引入EasyLazyload.js
+  let isLazyJsIncluded = false;
+  let scripts = $("body script[src]");
+  for (let i = 0; i < scripts.length; i++) {
+    let src = scripts[i].src;
+    if (src.indexOf("libs/EasyLazyload.js") > 0) {
+      isLazyJsIncluded = true;
+      break;
+    }
+  }
+  if (!isLazyJsIncluded) {
+    logE("EasyLazyload - 使用EasyLazyload前须在body最后引入EasyLazyload.js!!!")
+    return;
+  }
+
+  logI("启动懒加载 lazyLoadInit");
+
+  lazyLoadInit({
+    // 颜色蒙层
+    coverColor: "white",
+    // 元素蒙层
+    // coverDiv: "",
+    // 不可见img距离底部offsetBottom距离时开始加载图片
+    offsetBottom: 100,
+    // 不可见img距离顶部offsetBottom距离时开始加载图片
+    offsetTopm: 100,
+    // 图片显示动画时间
+    showTime: 300,
+    // onLoadBackEnd: function (i, jqEle) {
+    //   // 图片完全显示回调
+    // },
+    // onLoadBackStart: function (i, jqEle) {
+    //   // 图片下载完成回调
+    // }
+  });
 }
